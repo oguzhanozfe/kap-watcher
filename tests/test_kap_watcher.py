@@ -60,6 +60,11 @@ class Check(unittest.TestCase):
         self.assertFalse(a.verified)
         self.assertEqual(a.event_type, "dividend")
 
+    def test_list_wrapped_answer(self):
+        a = analyze(Disclosure("X", "", SRC), chat=lambda s, u: [{"event_type": "dividend", "quotes": []}])
+        self.assertEqual(a.event_type, "dividend")
+        self.assertEqual(analyze(Disclosure("X", "", SRC), chat=lambda s, u: ["junk"]).event_type, "other")
+
     def test_unknown_label_becomes_other(self):
         a = analyze(Disclosure("X", "", SRC), chat=lambda s, u: {"event_type": "weird", "quotes": []})
         self.assertEqual(a.event_type, "other")

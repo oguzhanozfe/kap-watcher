@@ -82,13 +82,20 @@ def _clean(v):
     return v if isinstance(v, str) and v.strip() and v.strip().lower() != "null" else None
 
 
+def _as_dict(raw) -> dict:
+    """Models sometimes wrap the object in a list; anything else counts as empty."""
+    if isinstance(raw, list) and raw and isinstance(raw[0], dict):
+        raw = raw[0]
+    return raw if isinstance(raw, dict) else {}
+
+
 def analyze(d: Disclosure, chat=llm.chat_json) -> Analysis:
     user = f"Title: {d.title}\n\n{d.text}"
-    raw = chat(SYSTEM, user)
+    raw = _as_dict(chat(SYSTEM, user))
     problems = check(raw, d.text)
     if problems:  # one repair round with the checker's feedback
-        raw2 = chat(SYSTEM, user + "\n\nYour previous answer failed verification:\n- "
-                    + "\n- ".join(problems) + "\nFix it. Copy numbers and quotes verbatim.")
+        raw2 = _as_dict(chat(SYSTEM, user + "\n\nYour previous answer failed verification:\n- "
+                    + "\n- ".join(problems) + "\nFix it. Copy numbers and quotes verbatim."))
         p2 = check(raw2, d.text)
         if len(p2) <= len(problems):
             raw, problems = raw2, p2

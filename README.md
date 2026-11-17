@@ -54,8 +54,9 @@ subscription, so there is no client for it here.
 ## Run
 
 Python 3.10+, no required dependencies. A model is needed only for summaries:
-Gemini if `GEMINI_API_KEY` is set, else DeepSeek if `DEEPSEEK_API_KEY` is set,
-else a local [Ollama](https://ollama.com) model (`qwen3.5:9b`). Disclosures are
+Gemini API if `GEMINI_API_KEY` is set (default model `gemma-4-31b-it`, whose
+free-tier quota is separate from the Gemini models'), else DeepSeek if
+`DEEPSEEK_API_KEY` is set, else a local [Ollama](https://ollama.com) model (`qwen3.5:9b`). Disclosures are
 public, but note that cloud providers receive the text you process.
 
 ```bash
@@ -90,75 +91,119 @@ Options:
   `KAP_LLM_MODEL` overrides the model; `OLLAMA_HOST` points at another Ollama;
   `openai` means any OpenAI-compatible endpoint via `KAP_LLM_BASE_URL` and
   `KAP_LLM_API_KEY`. Keys are read from the environment only; tests and CI need none.
+- **Cache:** model responses are stored in `.kap-cache/`, keyed by a hash of the
+  request. Set `KAP_CACHE_DIR` to move the cache, or set it to `off` to disable it.
 
 ## Measured results
 
-Two hand-labelled sets of KAP-style disclosures (fictional companies, see
-Known limits), 9 classes:
+Three hand-labelled sets of KAP-style disclosures, all about fictional
+companies (see Known limits), scored on 9 classes:
 
-- **main** ([data/disclosures.jsonl](data/disclosures.jsonl), 65 items): I wrote these,
-  and I also wrote the keyword rules and the class definitions in the prompt.
-  Both scores are therefore optimistic.
-- **held-out** ([data/heldout.jsonl](data/heldout.jsonl), 27 items, 3 per class): written
-  afterwards by a separate agent that never saw the rules, prompt or main set,
-  then label-checked by me. 17 of 27 use the generic title *Özel Durum
-  Açıklaması (Genel)*, 5 are in English, and several are deliberate confusables
-  (bond issue vs capital increase, insider sale vs buyback, factory purchase vs
-  acquisition). This is the more honest number.
+- **main** ([data/disclosures.jsonl](data/disclosures.jsonl), 65 items). I wrote
+  these, and I also wrote the keyword rules and the class definitions in the
+  prompt. Both scores on this set are therefore optimistic.
+- **held-out** ([data/heldout.jsonl](data/heldout.jsonl), 27 items, 3 per class).
+  - Written afterwards by a separate agent (Claude Sonnet) that never saw the
+    rules, the prompt or the main set. I then checked the labels.
+  - 17 of the 27 have the generic title *Özel Durum Açıklaması (Genel)*, and 5
+    are in English.
+- **hard** ([data/hard.jsonl](data/hard.jsonl), 18 items). Also written
+  independently by Claude Sonnet, as deliberate traps in five categories:
+  - an event is mentioned but the disclosure is about something else;
+  - several events in one disclosure;
+  - a correction or cancellation of an earlier disclosure;
+  - an `other` item that looks like a dividend or a buyback;
+  - amounts written in words or in thousands.
 
-Local model: `qwen3.5:9b` via Ollama (digest `56671c2a…`), temperature 0, on a
-Mac, run 2026-11-17. Raw outputs, per-item predictions and summaries:
+  The label is the event the disclosure is *about*.
+
+Neither independent set was drafted by a model that is evaluated here.
+
+All runs were on 2026-11-17 at temperature 0, with the same prompt and the
+same number check. Raw outputs, per-item predictions and summaries are in
 [results/](results/).
 
-| | keyword baseline | qwen3.5:9b (local) |
-|---|---|---|
-| main set accuracy (n=65) | 0.94 | 1.00 |
-| main set macro F1 | 0.94 | 1.00 |
-| **held-out accuracy (n=27)** | **0.78** | **1.00** |
-| held-out macro F1 | 0.77 | 1.00 |
+- **Local:** `qwen3.5:9b` via Ollama (digest `56671c2a…`).
+- **Cloud:** `gemma-4-31b-it` and `gemini-3.5-flash-lite`, through the Gemini
+  API's free tier.
 
-Held-out set, per class:
+Classification accuracy (macro F1 in brackets):
 
-| class | n | keyword P | keyword R | LLM P | LLM R |
+| set | n | keyword baseline | qwen3.5:9b (local) | gemma-4-31b-it (cloud) | gemini-3.5-flash-lite (cloud) |
 |---|---|---|---|---|---|
-| dividend | 3 | 1.00 | 1.00 | 1.00 | 1.00 |
-| capital_increase | 3 | 1.00 | 0.67 | 1.00 | 1.00 |
-| buyback | 3 | 0.75 | 1.00 | 1.00 | 1.00 |
-| contract_tender | 3 | 0.67 | 0.67 | 1.00 | 1.00 |
-| m_and_a | 3 | 0.50 | 0.67 | 1.00 | 1.00 |
-| management_change | 3 | 0.75 | 1.00 | 1.00 | 1.00 |
-| financial_statements | 3 | 1.00 | 0.67 | 1.00 | 1.00 |
-| legal_case | 3 | 1.00 | 1.00 | 1.00 | 1.00 |
-| other | 3 | 0.50 | 0.33 | 1.00 | 1.00 |
+| main (my own) | 65 | 0.94 (0.94) | 1.00 (1.00) | not run | not run |
+| held-out | 27 | 0.78 (0.77) | 1.00 (1.00) | 1.00 (1.00) | not run |
+| **hard** | 18 | **0.50 (0.41)** | **0.83 (0.87)** | **0.94 (0.96)** | **0.83 (0.87)** |
 
-The keyword baseline loses where the title is generic and the body contains
-another class's words: "pay geri alımı ile bir ilgisi yoktur" (an insider sale)
-reads as a buyback, "satın alınmıştır" (a factory purchase) as an acquisition.
+Hard set, number correct by trap category:
 
-Fields and summaries (local model):
+| trap | n | keyword | qwen3.5:9b | gemma-4-31b-it | flash-lite |
+|---|---|---|---|---|---|
+| mentions one event, is about another | 4 | 1 | 3 | 4 | 4 |
+| multi-event | 4 | 2 | 4 | 4 | 4 |
+| correction or cancellation | 4 | 3 | 4 | 4 | 4 |
+| `other` that looks like dividend/buyback | 4 | 2 | 2 | 3 | 1 |
+| amount in words or thousands | 2 | 1 | 2 | 2 | 2 |
 
-| | main (65) | held-out (27) |
-|---|---|---|
-| amount matches gold | 0.88 | 0.85 |
-| date matches gold | 0.97 | 0.96 |
-| counterparty matches gold | 0.95 | 0.81 |
-| summaries passing the number check | 0.98 (64/65) | 1.00 |
-| median seconds per disclosure | 24.7 | 20.9 |
+What the hard set shows:
 
-The one failure on the main set used the year "2025" from the source without
-including it in a quote; the alert withheld that summary as designed.
+- **The keyword baseline breaks** wherever the body contains another class's
+  words. Its score falls from 0.94 on my own set to 0.78 on held-out and 0.50
+  on hard.
+- **The models' weak spot is the lookalikes**, items that read like a dividend
+  or a buyback but aren't one:
+  - an extraordinary general assembly agenda that lists a dividend item no one
+    has decided yet;
+  - a shareholder buying shares for themselves;
+  - a fund, run by a subsidiary, buying the parent's shares.
+- **That last case is genuinely arguable.** My prompt counts a subsidiary
+  buying parent shares as a buyback; the writer labelled it `other` because the
+  buyer is a fund the subsidiary manages. Every model said `buyback`. It is
+  Gemma's only miss.
+- **qwen3.5:9b also missed** a set of financial statements whose notes describe
+  a buyback.
 
-Read these numbers with the sample size in mind: 27 held-out items means one
-mistake moves accuracy by almost 4 points, and 100% on 27 easy-to-medium
-items does not mean 100% on real filings.
+Fields and summaries:
 
-**Cloud comparison: pending.** The default provider is now Gemini (then
-DeepSeek, then local Ollama). On the run date the shared Gemini free-tier key
-had used up its daily per-model quota and the DeepSeek account had no
-balance, so there is no cloud result yet. Reproduce with:
+| | qwen held-out | gemma held-out | qwen hard | gemma hard | flash-lite hard |
+|---|---|---|---|---|---|
+| amount matches gold | 0.85 | 0.96 | 0.83 | 0.89 | 0.78 |
+| date matches gold | 0.96 | 1.00 | 0.83 | 1.00 | 1.00 |
+| counterparty matches gold | 0.81 | 0.93 | 0.83 | 0.94 | 0.94 |
+| summaries passing the number check | 1.00 | 1.00 | 0.89 | 1.00 | 1.00 |
+
+On the main set, qwen3.5:9b matched the gold amount 0.88 of the time, the date
+0.97 and the counterparty 0.95. Its summaries passed the number check on 64 of
+65 items.
+
+**The number check withheld 3 summaries**, all from the local model:
+
+- **Main set, one summary.** It used the year "2025" from the source without
+  including it in a quote.
+- **Hard set, two summaries.** One quoted an amount written in words slightly
+  wrongly. The other used a number with no supporting quote.
+
+Every withheld summary is replaced by its quotes in the alert, as designed.
+
+**Speed and sample size:**
+
+- **Local speed:** about 21 to 25 s per disclosure when the shared Mac was
+  quiet. Under load from other sessions it took much longer.
+- **Cloud latency isn't reported:** reruns served from the response cache make
+  it meaningless.
+- **Small sets:** 18 or 27 items means one mistake moves accuracy by 4 to
+  6 points.
+- **Missing cloud runs:** the main set and flash-lite on held-out weren't run on
+  cloud. The free tier allows about 20 requests per model per day on a key
+  shared with other projects, and `gemma-4-31b-it` kept returning 503s, so
+  those runs needed retries.
+
+Reproduce. Responses are cached in `.kap-cache/`, so a rerun only calls the
+model for items that are missing:
 
 ```bash
-python -m kap_watcher eval --data data/heldout.jsonl --out results/eval-heldout-gemini.json
+python -m kap_watcher eval --data data/hard.jsonl --out results/eval-hard-gemma-4-31b-it.json
+KAP_LLM_MODEL=gemini-3.5-flash-lite python -m kap_watcher eval --data data/hard.jsonl
 KAP_LLM_PROVIDER=ollama python -m kap_watcher eval --data data/heldout.jsonl
 ```
 
@@ -200,8 +245,8 @@ If it still fails, the alert withholds the summary and prints the quotes.
   disclosures modelled on KAP templates, with fictional companies and tickers.
   They are not copies of real filings. Real filings are longer, carry tables
   and attachments, and will score differently.
-- **Small sets.** 65 + 27 items; per-class numbers rest on 3 to 10 examples
-  and move a lot with one mistake.
+- **Small sets.** 65 + 27 + 18 items. Per-class numbers rest on 1 to 10
+  examples and move a lot with one mistake.
 - **The number check proves presence, not meaning.** It catches invented or
   altered numbers; it does not catch a real number attached to the wrong
   thing (old capital reported as new capital) or a wrong tense. In the demo
