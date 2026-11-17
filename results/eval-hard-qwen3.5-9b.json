@@ -1,0 +1,510 @@
+{
+ "dataset": "hard.jsonl",
+ "n": 18,
+ "keyword_baseline": {
+  "dividend": {
+   "precision": 0.25,
+   "recall": 0.5,
+   "f1": 0.333,
+   "support": 2
+  },
+  "capital_increase": {
+   "precision": 0.0,
+   "recall": 0.0,
+   "f1": 0.0,
+   "support": 1
+  },
+  "buyback": {
+   "precision": 0.4,
+   "recall": 1.0,
+   "f1": 0.571,
+   "support": 2
+  },
+  "contract_tender": {
+   "precision": 0.0,
+   "recall": 0.0,
+   "f1": 0.0,
+   "support": 2
+  },
+  "m_and_a": {
+   "precision": 0.667,
+   "recall": 1.0,
+   "f1": 0.8,
+   "support": 2
+  },
+  "management_change": {
+   "precision": 0.5,
+   "recall": 1.0,
+   "f1": 0.667,
+   "support": 1
+  },
+  "financial_statements": {
+   "precision": 1.0,
+   "recall": 0.5,
+   "f1": 0.667,
+   "support": 2
+  },
+  "legal_case": {
+   "precision": 0.0,
+   "recall": 0.0,
+   "f1": 0.0,
+   "support": 2
+  },
+  "other": {
+   "precision": 1.0,
+   "recall": 0.5,
+   "f1": 0.667,
+   "support": 4
+  },
+  "_accuracy": 0.5,
+  "_macro_f1": 0.412
+ },
+ "provider": "ollama",
+ "model": "qwen3.5:9b",
+ "model_digest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+ "run_date": "2026-11-17",
+ "llm": {
+  "dividend": {
+   "precision": 0.667,
+   "recall": 1.0,
+   "f1": 0.8,
+   "support": 2
+  },
+  "capital_increase": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "support": 1
+  },
+  "buyback": {
+   "precision": 0.5,
+   "recall": 1.0,
+   "f1": 0.667,
+   "support": 2
+  },
+  "contract_tender": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "support": 2
+  },
+  "m_and_a": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "support": 2
+  },
+  "management_change": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "support": 1
+  },
+  "financial_statements": {
+   "precision": 1.0,
+   "recall": 0.5,
+   "f1": 0.667,
+   "support": 2
+  },
+  "legal_case": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "support": 2
+  },
+  "other": {
+   "precision": 1.0,
+   "recall": 0.5,
+   "f1": 0.667,
+   "support": 4
+  },
+  "_accuracy": 0.833,
+  "_macro_f1": 0.867
+ },
+ "llm_errors": 0,
+ "fields": {
+  "amount": 0.833,
+  "date": 0.833,
+  "counterparty": 0.833
+ },
+ "summary_number_check_pass_rate": 0.889,
+ "usage": {
+  "calls": 22,
+  "cache_hits": 0,
+  "prompt_tokens": 11660,
+  "completion_tokens": 4999
+ },
+ "by_trap": {
+  "mentions one event, is about another": {
+   "n": 4,
+   "keyword": 1,
+   "llm": 3
+  },
+  "multi-event": {
+   "n": 4,
+   "keyword": 2,
+   "llm": 4
+  },
+  "correction or cancellation": {
+   "n": 4,
+   "keyword": 3,
+   "llm": 4
+  },
+  "'other' that looks like dividend/buyback": {
+   "n": 4,
+   "keyword": 2,
+   "llm": 2
+  },
+  "amount in words or thousands": {
+   "n": 2,
+   "keyword": 1,
+   "llm": 2
+  }
+ },
+ "latency_s_median": 938.1,
+ "items": [
+  {
+   "id": "hd-01",
+   "gold": "legal_case",
+   "keyword": "dividend",
+   "llm": "legal_case",
+   "error": null,
+   "amount": "3.400.000 TL",
+   "date": "12.11.2026",
+   "counterparty": "Hakan Selvi",
+   "summary_tr": "Şirket aleyhine, Genel Kurul'da kabul edilen brüt 0,85 TL kâr payının düşük olduğu gerekçesiyle İstanbul 4. Asliye Ticaret Mahkemesi'nde dava açılmış ve dilekçe 12.11.2026 tarihinde tebliğ edilmiştir.",
+   "summary_en": "A lawsuit was filed against the company at the Istanbul 4th Commercial Court of First Instance by shareholder Hakan Selvi, claiming the approved gross dividend of 0.85 TL per share is too low; the complaint was served on 12.11.2026.",
+   "quotes": [
+    "brüt 0,85 TL kâr payı",
+    "3.400.000 TL",
+    "12.11.2026"
+   ],
+   "problems": [
+    "summary_tr: 4 not backed by a source quote",
+    "summary_en: 4 not backed by a source quote"
+   ],
+   "seconds": 1747.1
+  },
+  {
+   "id": "hd-02",
+   "gold": "management_change",
+   "keyword": "management_change",
+   "llm": "management_change",
+   "error": null,
+   "amount": null,
+   "date": "14.11.2026",
+   "counterparty": "Mert Çalkın",
+   "summary_tr": "Genel Müdür Sevgi Aksoy'un görevinden ayrılmasına ve yerine Strateji Direktörü Mert Çalkın'ın atanmasına karar verilmiştir.",
+   "summary_en": "The Board of Directors has decided on the departure of General Manager Sevgi Aksoy and the appointment of Strategy Director Mert Çalkın to replace her.",
+   "quotes": [
+    "14.11.2026",
+    "Sevgi Aksoy",
+    "Mert Çalkın",
+    "01.12.2026"
+   ],
+   "problems": [],
+   "seconds": 644.2
+  },
+  {
+   "id": "hd-03",
+   "gold": "financial_statements",
+   "keyword": "buyback",
+   "llm": "buyback",
+   "error": null,
+   "amount": "TRY 212.4 million",
+   "date": null,
+   "counterparty": null,
+   "summary_tr": "Dönemsel net kar TRY 212.4 milyon olarak açıklanmıştır; mevcut alım programı kapsamında satın alınan hisseler Not 17'de tanımlanmaktadır.",
+   "summary_en": "Net profit for the period was TRY 212.4 million, and shares repurchased under the existing buyback programme are described in Note 17.",
+   "quotes": [
+    "TRY 212.4 million",
+    "Note 17"
+   ],
+   "problems": [],
+   "seconds": 789.7
+  },
+  {
+   "id": "hd-04",
+   "gold": "contract_tender",
+   "keyword": "capital_increase",
+   "llm": "contract_tender",
+   "error": null,
+   "amount": "18.500.000 Euro",
+   "date": "15.09.2027",
+   "counterparty": "Anadolu Raylı Sistemler A.Ş.",
+   "summary_tr": "Şirket, bedelli sermaye artırımından sağlanan kaynakla Anadolu Raylı Sistemler A.Ş. ile 18.500.000 Euro tutarında vagon tedarik sözleşmesi imzalamıştır.",
+   "summary_en": "The company has signed a wagon supply contract worth 18,500,000 Euro with Anadolu Raylı Sistemler A.Ş., financed by resources from the completed paid-in capital increase.",
+   "quotes": [
+    "18.500.000 Euro",
+    "15.09.2027"
+   ],
+   "problems": [],
+   "seconds": 1244.2
+  },
+  {
+   "id": "hd-05",
+   "gold": "dividend",
+   "keyword": "buyback",
+   "llm": "dividend",
+   "error": null,
+   "amount": "1,20 TL",
+   "date": "16.11.2026",
+   "counterparty": null,
+   "summary_tr": "Yönetim Kurulu, 2026 yılı kârından pay başına brüt 1,20 TL nakit kâr payı dağıtılması teklif edilmesine karar vermiştir.",
+   "summary_en": "The Board of Management has decided to propose a cash dividend of 1.20 TL per share from the 2026 profit.",
+   "quotes": [
+    "pay başına brüt 1,20 TL nakit kâr payı",
+    "16.11.2026"
+   ],
+   "problems": [],
+   "seconds": 940.3
+  },
+  {
+   "id": "hd-06",
+   "gold": "m_and_a",
+   "keyword": "m_and_a",
+   "llm": "m_and_a",
+   "error": null,
+   "amount": "450.000.000 TL'den 610.000.000 TL'ye",
+   "date": "13.11.2026",
+   "counterparty": "Kuzey Enerji A.Ş.",
+   "summary_tr": "Yönetim Kurulu, Kuzey Enerji A.Ş. ile devralma suretiyle birleşme sözleşmesini 13.11.2026 tarihinde onaylamıştır ve bu işlemle sermaye 450.000.000 TL'den 610.000.000 TL'ye çıkarılacaktır.",
+   "summary_en": "The Board of Directors approved the merger agreement with Kuzey Enerji A.Ş. on 13.11.2026, which will increase the capital from 450,000,000 TL to 610,000,000 TL.",
+   "quotes": [
+    "Kuzey Enerji A.Ş. ile devralma suretiyle birleşmesine ilişkin birleşme sözleşmesi",
+    "Yönetim Kurulu tarafından 13.11.2026 tarihinde onaylanmıştır",
+    "Birleşme nedeniyle çıkarılmış sermayenin 450.000.000 TL'den 610.000.000 TL'ye artırılması planlanmaktadır"
+   ],
+   "problems": [],
+   "seconds": 642.1
+  },
+  {
+   "id": "hd-07",
+   "gold": "capital_increase",
+   "keyword": "dividend",
+   "llm": "capital_increase",
+   "error": null,
+   "amount": "yüz yirmi milyon Türk Lirası",
+   "date": null,
+   "counterparty": null,
+   "summary_tr": "Yönetim Kurulu, çıkarılmış sermayenin iç kaynaklardan yüzde elli oranında bedelsiz artırılarak yüz seksen milyon Türk Lirasına yükseltilmesine karar vermiştir.",
+   "summary_en": "The Board of Directors has decided to increase the issued capital by fifty percent from internal sources without payment, raising it to one hundred eighty million Turkish Lira.",
+   "quotes": [
+    "yüz yirmi milyon Türk Lirası",
+    "iç kaynaklardan yüzde elli oranında bedelsiz artırılarak yüz seksen milyon Türk Lirasına"
+   ],
+   "problems": [
+    "quote not found in source: 'iç kaynaklardan yüzde elli oranında bedelsiz artırılarak yüz seksen milyon Türk '"
+   ],
+   "seconds": 1612.4
+  },
+  {
+   "id": "hd-08",
+   "gold": "buyback",
+   "keyword": "buyback",
+   "llm": "buyback",
+   "error": null,
+   "amount": "55.000.000 TL",
+   "date": "22.11.2026",
+   "counterparty": "Barış Yatırım A.Ş.",
+   "summary_tr": "Şirket, daha önce geri alım programı kapsamında edindiği 2.000.000 adet payı Barış Yatırım A.Ş. aracılığıyla borsada satmış ve toplam satış tutarı 55.000.000 TL olmuştur.",
+   "summary_en": "The company sold 2,000,000 shares acquired under its buyback program via Barış Yatırım A.Ş. on the stock exchange, resulting in a total sales amount of 55,000,000 TL.",
+   "quotes": [
+    "2.000.000 adet payı",
+    "22.11.2026",
+    "Barış Yatırım A.Ş.",
+    "27,50 TL",
+    "55.000.000 TL",
+    "24.11.2026"
+   ],
+   "problems": [],
+   "seconds": 670.5
+  },
+  {
+   "id": "hd-09",
+   "gold": "buyback",
+   "keyword": "buyback",
+   "llm": "buyback",
+   "error": null,
+   "amount": "10.000.000 TL",
+   "date": "12.11.2026",
+   "counterparty": null,
+   "summary_tr": "Şirket, 1 Ekim 2026'da duyurduğu pay geri alım programına ilişkin açıklamayı düzeltmektedir; Yönetim Kurulu'nun 12.11.2026 tarihli kararıyla program iptal edilmiş ve ayrılan 10.000.000 TL'lik fon kullanılmamıştır.",
+   "summary_en": "The company is correcting its announcement regarding the share buyback program announced on October 1, 2026; the program was cancelled by a Board of Directors decision dated November 12, 2026, and the allocated fund of 10.000.000 TL was not used.",
+   "quotes": [
+    "1 Ekim 2026",
+    "10.000.000 TL",
+    "12.11.2026"
+   ],
+   "problems": [],
+   "seconds": 939.3
+  },
+  {
+   "id": "hd-10",
+   "gold": "dividend",
+   "keyword": "dividend",
+   "llm": "dividend",
+   "error": null,
+   "amount": "TRY 0.59",
+   "date": null,
+   "counterparty": null,
+   "summary_tr": "Düzeltilen açıklamada, Yönetim Kurulu tarafından onaylanan brüt taksit başına temettinin TRY 0.59 olarak belirlendiği ve ödeme tarihinin değişmediği bildirilmiştir.",
+   "summary_en": "The corrected disclosure states that the gross dividend per share approved by the Board is TRY 0.59, and the payment date remains unchanged.",
+   "quotes": [
+    "TRY 0.59",
+    "10.11.2026"
+   ],
+   "problems": [],
+   "seconds": 785.6
+  },
+  {
+   "id": "hd-11",
+   "gold": "contract_tender",
+   "keyword": "management_change",
+   "llm": "contract_tender",
+   "error": null,
+   "amount": "212.000 bin TL",
+   "date": "03.11.2026",
+   "counterparty": null,
+   "summary_tr": "Şirketimizin Karayolları Genel Müdürlüğü tarafından açılan köprü yapım ihalesinde en avantajlı teklif sahibi olduğu belirtilen 212.000 bin TL'lik açıklamasının geçersiz olduğu ve ihalenin iptal edildiği bildirilmiştir.",
+   "summary_en": "The company's previous disclosure stating it was the most advantageous bidder with a quote of 212,000 thousand TL for a bridge construction tender by the General Directorate of Highways has been invalidated, and the tender has been cancelled.",
+   "quotes": [
+    "212.000 bin TL",
+    "03.11.2026"
+   ],
+   "problems": [],
+   "seconds": 781.6
+  },
+  {
+   "id": "hd-12",
+   "gold": "m_and_a",
+   "keyword": "m_and_a",
+   "llm": "m_and_a",
+   "error": null,
+   "amount": null,
+   "date": "20.10.2026",
+   "counterparty": null,
+   "summary_tr": "Mavi Kıyı Turizm A.Ş. paylarının satın alınmasına ilişkin 20.10.2026 tarihinde imzalanan niyet mektubu kapsamında yürütülen görüşmeler, fiyat konusunda uzlaşma sağlanamaması nedeniyle sona ermiştir.",
+   "summary_en": "Discussions regarding the purchase of Mavi Kıyı Turizm A.Ş. shares under a letter of intent signed on 20.10.2026 have concluded due to an inability to reach an agreement on price.",
+   "quotes": [
+    "20.10.2026"
+   ],
+   "problems": [],
+   "seconds": 938.1
+  },
+  {
+   "id": "hd-13",
+   "gold": "other",
+   "keyword": "other",
+   "llm": "other",
+   "error": null,
+   "amount": "14.350.000 TL",
+   "date": "16.11.2026",
+   "counterparty": null,
+   "summary_tr": "Şirketin 250.000.000 TL nominal tutarlı değişken faizli tahvili için 4. kupon ödemesi 16.11.2026 tarihinde yapılmış ve toplam 14.350.000 TL ödenmiştir.",
+   "summary_en": "The company made its 4th coupon payment on November 16, 2026 for a variable interest bond with a nominal value of 250,000,000 TL, paying a total of 14,350,000 TL.",
+   "quotes": [
+    "250.000.000 TL",
+    "4. kupon ödemesi",
+    "16.11.2026",
+    "14.350.000 TL"
+   ],
+   "problems": [],
+   "seconds": 1871.8
+  },
+  {
+   "id": "hd-14",
+   "gold": "other",
+   "keyword": "dividend",
+   "llm": "dividend",
+   "error": null,
+   "amount": null,
+   "date": "18.12.2026",
+   "counterparty": null,
+   "summary_tr": "Şirketin olağanüstü genel kurulu 18.12.2026 tarihinde toplanacak ve gündemde 2026 yılı kâr dağıtımı maddesi yer alacaktır.",
+   "summary_en": "The company's extraordinary general assembly will be held on 18.12.2026, and the agenda will include a discussion on the 2026 profit distribution.",
+   "quotes": [
+    "Olağanüstü Genel Kurul toplantımız 18.12.2026 tarihinde yapılacaktır",
+    "Gündemin 4. maddesinde 2026 yılı kâr dağıtımı hakkında görüşülmesi yer almakta olup"
+   ],
+   "problems": [],
+   "seconds": 937.7
+  },
+  {
+   "id": "hd-15",
+   "gold": "other",
+   "keyword": "other",
+   "llm": "other",
+   "error": null,
+   "amount": "350.000 adet şirket payı / 2.450.000 TL / yüzde 5,2",
+   "date": "12.11.2026",
+   "counterparty": "Burak Tanrıverdi",
+   "summary_tr": "Pay sahibi Burak Tanrıverdi'nin 12.11.2026 tarihinde 350.000 adet şirket payı satın alması ve işlem bedeli olan 2.450.000 TL ile ortaklık payının yüzde 5,2'ye yükselmesi bildirilmiştir.",
+   "summary_en": "Shareholder Burak Tanrıverdi purchased 350,000 shares on 12.11.2026 for a total of 2,450,000 TL, increasing the ownership stake to 5.2%.",
+   "quotes": [
+    "12.11.2026",
+    "350.000 adet şirket payı",
+    "2.450.000 TL",
+    "yüzde 5,2"
+   ],
+   "problems": [],
+   "seconds": 934.9
+  },
+  {
+   "id": "hd-16",
+   "gold": "other",
+   "keyword": "buyback",
+   "llm": "buyback",
+   "error": null,
+   "amount": "4.640.000 TL",
+   "date": "13.11.2026",
+   "counterparty": "Jeta Hisse Fonu",
+   "summary_tr": "Yüzde yüz bağlı ortaklığımız Jeta Portföy Yönetimi A.Ş.'nin yönettiği Jeta Hisse Fonu, 13.11.2026 tarihinde şirketimiz paylarından 800.000 adet satın almıştır.",
+   "summary_en": "The Jeta Fund, managed by our wholly-owned subsidiary Jeta Portföy Yönetimi A.Ş., purchased 800,000 shares of the company on 13.11.2026.",
+   "quotes": [
+    "Jeta Hisse Fonu, 13.11.2026 tarihinde şirketimiz paylarından 800.000 adet satın almıştır",
+    "İşlem 4.640.000 TL bedelle gerçekleşmiş"
+   ],
+   "problems": [],
+   "seconds": 943.5
+  },
+  {
+   "id": "hd-17",
+   "gold": "financial_statements",
+   "keyword": "financial_statements",
+   "llm": "financial_statements",
+   "error": null,
+   "amount": "45.200 (bin TL)",
+   "date": "30.09.2026",
+   "counterparty": null,
+   "summary_tr": "Şirket, 30.09.2026 tarihi itibarıyla hazırlanan konsolide finansal tablolarını kamuya açıklamıştır.",
+   "summary_en": "The company has disclosed its consolidated financial statements as of September 30, 2026.",
+   "quotes": [
+    "30.09.2026",
+    "1.245.800",
+    "45.200"
+   ],
+   "problems": [],
+   "seconds": 1478.8
+  },
+  {
+   "id": "hd-18",
+   "gold": "legal_case",
+   "keyword": "m_and_a",
+   "llm": "legal_case",
+   "error": null,
+   "amount": "12,5 milyon USD",
+   "date": "11.11.2026",
+   "counterparty": "Hazine ve Maliye Bakanlığı Vergi Denetim Başkanlığı",
+   "summary_tr": "Şirket, Mısır'daki iştirakine ait 2021-2023 dönemine ilişkin inceleme raporuna dayalı olarak Hazine ve Maliye Bakanlığı Vergi Denetim Başkanlığı'ndan 12,5 milyon USD tutarında vergi ve ceza tarhiyatı bildirimini almıştır.",
+   "summary_en": "The company received a notification of tax and penalty assessments totaling 12.5 million USD from the Treasury and Ministry of Finance Tax Inspection Directorate for its subsidiary in Egypt, based on an inspection report covering the 2021-2023 period.",
+   "quotes": [
+    "12,5 milyon USD",
+    "11.11.2026",
+    "2021-2023 dönemine ilişkin inceleme raporuna dayanarak"
+   ],
+   "problems": [],
+   "seconds": 841.2
+  }
+ ]
+}

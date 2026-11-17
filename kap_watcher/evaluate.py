@@ -37,6 +37,23 @@ def field_match(kind: str, gold: str | None, pred: str | None) -> bool:
     return g in p or p in g
 
 
+TRAPS = {"1": "mentions one event, is about another", "2": "multi-event", "3": "correction or cancellation",
+         "4": "'other' that looks like dividend/buyback", "5": "amount in words or thousands"}
+
+
+def by_trap(rows, kw_preds, llm_preds) -> dict:
+    """Correct counts per trap category; 'trap' starts with the category digit."""
+    out = {}
+    for r, k, p in zip(rows, kw_preds, llm_preds):
+        t = TRAPS.get(str(r.get("trap", "")).strip()[:1])
+        if t:
+            c = out.setdefault(t, {"n": 0, "keyword": 0, "llm": 0})
+            c["n"] += 1
+            c["keyword"] += k == r["label"]
+            c["llm"] += p == r["label"]
+    return out
+
+
 def run(data: Path, out: Path | None = None, workers: int = 2, limit: int | None = None) -> dict:
     rows = [json.loads(l) for l in Path(data).read_text("utf-8").splitlines() if l.strip()][:limit]
     gold = [r["label"] for r in rows]
@@ -65,6 +82,8 @@ def run(data: Path, out: Path | None = None, workers: int = 2, limit: int | None
                         for k in ("amount", "date", "counterparty")}
     result["summary_number_check_pass_rate"] = round(sum(a.verified for _, a in ok) / max(len(ok), 1), 3)
     result["usage"] = dict(llm.USAGE)
+    if any(r.get("trap") for r in rows):  # hard set: accuracy per trap category
+        result["by_trap"] = by_trap(rows, [keywords.classify(r["title"], r["text"]) for r in rows], preds)
     result["latency_s_median"] = round(sorted(t for *_, t in done)[len(done) // 2], 1)
     result["items"] = [{"id": r["id"], "gold": r["label"], "keyword": keywords.classify(r["title"], r["text"]),
                         "llm": a.event_type if a else None, "error": err,

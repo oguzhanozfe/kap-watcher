@@ -1,27 +1,33 @@
 """Minimal JSON-mode chat client over OpenAI-compatible endpoints.
 
 Provider (KAP_LLM_PROVIDER, or picked from whichever key is set):
-  gemini   GEMINI_API_KEY    default model gemini-3.5-flash
+  gemini   GEMINI_API_KEY    default model gemma-4-31b-it (free-tier quota is per model)
   deepseek DEEPSEEK_API_KEY  default model deepseek-chat
   ollama   no key            default model qwen3.5:9b at OLLAMA_HOST
   openai   KAP_LLM_BASE_URL + KAP_LLM_API_KEY (any compatible endpoint)
 KAP_LLM_MODEL overrides the model.
+Responses are cached on disk by request hash (KAP_CACHE_DIR, default .kap-cache;
+KAP_CACHE_DIR=off disables), so reruns cost no quota.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import os
+import re
 import time
+from pathlib import Path
 import urllib.error
 import urllib.request
 
 PROVIDERS = {
-    "gemini": ("https://generativelanguage.googleapis.com/v1beta/openai", "GEMINI_API_KEY", "gemini-3.5-flash"),
+    "gemini": ("https://generativelanguage.googleapis.com/v1beta/openai", "GEMINI_API_KEY", "gemma-4-31b-it"),
     "deepseek": ("https://api.deepseek.com", "DEEPSEEK_API_KEY", "deepseek-chat"),
     "ollama": (None, None, "qwen3.5:9b"),
     "openai": (None, "KAP_LLM_API_KEY", "gpt-4o-mini"),
 }
-USAGE = {"calls": 0, "prompt_tokens": 0, "completion_tokens": 0}
+USAGE = {"calls": 0, "cache_hits": 0, "prompt_tokens": 0, "completion_tokens": 0}
+THOUGHT = re.compile(r"<thought>.*?</thought>", re.S)  # Gemma via Gemini API inlines its reasoning
 
 
 class LLMError(RuntimeError):
@@ -58,6 +64,14 @@ def chat_json(system: str, user: str, *, timeout: float = 180, retries: int = 4)
             "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}]}
     if p == "ollama":
         body["reasoning_effort"] = "none"  # qwen3.x: skip thinking, answer directly
+    cache_dir = os.environ.get("KAP_CACHE_DIR", ".kap-cache")
+    cache = None
+    if cache_dir != "off":
+        digest = hashlib.sha256(json.dumps([p, body], sort_keys=True).encode()).hexdigest()
+        cache = Path(cache_dir) / f"{digest}.json"
+        if cache.exists():
+            USAGE["cache_hits"] += 1
+            return json.loads(cache.read_text("utf-8"))
     headers = {"Content-Type": "application/json", **({"Authorization": f"Bearer {key}"} if key else {})}
     last = None
     for attempt in range(retries + 1):
@@ -69,13 +83,18 @@ def chat_json(system: str, user: str, *, timeout: float = 180, retries: int = 4)
             USAGE["calls"] += 1
             USAGE["prompt_tokens"] += usage.get("prompt_tokens", 0)
             USAGE["completion_tokens"] += usage.get("completion_tokens", 0)
-            content = resp["choices"][0]["message"]["content"].strip()
+            content = THOUGHT.sub("", resp["choices"][0]["message"]["content"]).strip()
             if content.startswith("```"):
                 content = content.strip("`").removeprefix("json").strip()
-            return json.loads(content)
-        except urllib.error.HTTPError as e:  # 429/5xx: back off; other 4xx: give up
-            last = f"HTTP {e.code}"
-            if e.code != 429 and e.code < 500:
+            result = json.loads(content)
+            if cache:
+                cache.parent.mkdir(parents=True, exist_ok=True)
+                cache.write_text(json.dumps(result, ensure_ascii=False), "utf-8")
+            return result
+        except urllib.error.HTTPError as e:  # per-minute 429 / 5xx: back off; daily quota or 4xx: stop
+            detail = e.read().decode("utf-8", "replace")
+            last = f"HTTP {e.code}" + (" daily quota exhausted" if "PerDay" in detail else "")
+            if (e.code != 429 and e.code < 500) or "PerDay" in detail:
                 break
         except Exception as e:  # timeout, network, bad JSON
             last = type(e).__name__ + ": " + str(e)[:200]

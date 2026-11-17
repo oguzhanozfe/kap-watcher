@@ -116,6 +116,24 @@ class Provider(unittest.TestCase):
             self.assertEqual(llm.provider(), "ollama")
 
 
+    def test_gemma_thoughts_stripped_and_cached(self):
+        reply = {"choices": [{"message": {"content": '<thought>hmm {"x": 1}</thought>{"event_type": "other"}'}}],
+                 "usage": {"prompt_tokens": 3, "completion_tokens": 2}}
+
+        class Resp(io.BytesIO):
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *a):
+                return False
+        with tempfile.TemporaryDirectory() as tmp, \
+                mock.patch.dict(os.environ, {"KAP_LLM_PROVIDER": "gemini", "GEMINI_API_KEY": "x", "KAP_CACHE_DIR": tmp}), \
+                mock.patch("urllib.request.urlopen", side_effect=lambda *a, **k: Resp(json.dumps(reply).encode())) as op:
+            self.assertEqual(llm.chat_json("s", "u"), {"event_type": "other"})
+            self.assertEqual(llm.chat_json("s", "u"), {"event_type": "other"})
+            self.assertEqual(op.call_count, 1)
+
+
 class Eval(unittest.TestCase):
     def test_metrics(self):
         m = evaluate.per_class(["dividend", "dividend", "other"], ["dividend", "other", "other"])
