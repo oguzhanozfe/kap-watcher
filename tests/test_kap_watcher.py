@@ -9,7 +9,7 @@ from pathlib import Path
 import os
 from unittest import mock
 
-from kap_watcher import alerts, cli, evaluate, ingest, keywords, llm, numbers
+from kap_watcher import alerts, cli, demo, evaluate, ingest, keywords, llm, numbers
 from kap_watcher.analyze import Disclosure, analyze, check
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -137,6 +137,24 @@ class Provider(unittest.TestCase):
             self.assertEqual(llm.chat_json("s", "u"), {"event_type": "other"})
             self.assertEqual(llm.chat_json("s", "u"), {"event_type": "other"})
             self.assertEqual(op.call_count, 1)
+
+
+class Demo(unittest.TestCase):
+    def test_replay_runs_offline_and_writes_page(self):
+        out = io.StringIO()
+        with tempfile.TemporaryDirectory() as tmp, contextlib.redirect_stdout(out):
+            page = Path(tmp) / "index.html"
+            demo.run(force_replay=True, out=page)
+            html = page.read_text("utf-8")
+        self.assertIn("mode: replay (recorded", out.getvalue())
+        self.assertIn("6 summaries passed the number check", out.getvalue())
+        self.assertIn("Realistic examples, not real filings", html)
+        self.assertNotIn('class="bad"', html)
+
+    def test_highlight_marks_unquoted_numbers(self):
+        h = demo._highlight("toplam 312.500.000 TL ve 99 TL", ["toplam 312.500.000 TL"])
+        self.assertIn('<mark class="ok"', h)
+        self.assertIn('class="bad" title="not in any quote">99<', h)
 
 
 class Eval(unittest.TestCase):

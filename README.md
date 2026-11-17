@@ -2,17 +2,48 @@
 
 [![CI](https://github.com/oguzhanozfe/kap-watcher/actions/workflows/ci.yml/badge.svg)](https://github.com/oguzhanozfe/kap-watcher/actions/workflows/ci.yml)
 
-Reads KAP (Kamuyu Aydınlatma Platformu, Turkey's public disclosure platform)
-disclosures that **you** saved or pasted, classifies the event, pulls out the
-amount, date and counterparty, writes a short Turkish and English summary, and
-alerts you when a disclosure matches your watchlist.
+Classifies Turkish public-company disclosures from KAP (Kamuyu Aydınlatma
+Platformu), extracts the amount, date and counterparty, writes Turkish and
+English summaries in which every number must appear in a verbatim source quote,
+and alerts you when a disclosure matches your watchlist.
+
+## Try it
+
+**[Live demo page](https://oguzhanozfe.github.io/kap-watcher/)**: six
+realistic (fictional) disclosures, each shown with its class, extracted fields,
+summaries with every number checked, and the alerts a sample watchlist fires.
+
+[![Demo page: disclosure, class, fields and number-checked TR/EN summary](docs/screenshot.png)](https://oguzhanozfe.github.io/kap-watcher/)
+
+```bash
+git clone https://github.com/oguzhanozfe/kap-watcher && cd kap-watcher
+python -m kap_watcher demo        # no key or install needed; Python 3.10+
+```
+
+The demo picks a model automatically:
+
+1. **Cloud:** a key in the environment (`GEMINI_API_KEY` or `DEEPSEEK_API_KEY`)
+   uses that provider.
+2. **Local:** otherwise a local Ollama with `qwen3.5:9b` is used.
+3. **Replay:** otherwise it replays recorded `gemma-4-31b-it` outputs from
+   [examples/recorded.json](examples/recorded.json) and says so (`mode: replay`).
+
+The number check, the watchlist and the HTML page
+([docs/index.html](docs/index.html)) run the same way in every mode. CI runs
+the demo in replay mode on every push.
+
+To use a real model, set a key or start Ollama (details under [Run](#run)).
+
+## What it does
+
+The tool reads KAP disclosures that **you** saved or pasted.
 
 Every number in a summary must be backed by a verbatim quote from the source.
 A checker enforces this; a summary that fails is withheld and the alert shows
 the source quotes instead.
 
 > **Not investment advice.** This is information tooling. Summaries and
-> classifications come from a small local model and a keyword list and can be
+> classifications come from a language model or a keyword list and can be
 > wrong. Always read the original disclosure on kap.org.tr.
 
 ## Why it matters

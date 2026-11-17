@@ -12,3 +12,5 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
       - run: python -m unittest discover -s tests -v
+      - name: Demo (replay mode, no key, no model)
+        run: python -m kap_watcher demo --replay --out /tmp/demo.html

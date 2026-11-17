@@ -1,0 +1,115 @@
+{
+ "model": "gemma-4-31b-it",
+ "date": "2026-11-17",
+ "responses": {
+  "5d31e0a83210f1dc7ccb8ef2252da93a2cd24e1b519afab2336c5c5f17103e36": {
+   "event_type": "dividend",
+   "amount": "462.500.000 TL",
+   "date": "28.05.2026",
+   "counterparty": null,
+   "summary_tr": "Şirket Yönetim Kurulu, 2025 yılı kârından pay başına brüt 1,85 TL olmak üzere toplam 462.500.000 TL nakit temettü dağıtılmasını ve ödemenin 28.05.2026 tarihinde yapılmasını teklif etmiştir.",
+   "summary_en": "The Company's Board of Directors has proposed a gross cash dividend of 1.85 TL per share, totaling 462,500,000 TL, to be paid on 28.05.2026.",
+   "quotes": [
+    "pay başına brüt 1,85 TL (%185) tutarında nakit temettü dağıtılması",
+    "Toplam 462.500.000 TL tutarındaki ödemenin 28.05.2026 tarihinde yapılması planlanmakta"
+   ]
+  },
+  "2ba6912f53e02a8c0cd08453008d12619edb12ff1e9c22bc628237a7a2aca1c9": {
+   "event_type": "dividend",
+   "amount": "462.500.000 TL",
+   "date": "28.05.2026",
+   "counterparty": null,
+   "summary_tr": "Şirket Yönetim Kurulu, 2025 yılı kârından pay başına brüt 1,85 TL olmak üzere toplam 462.500.000 TL nakit temettü dağıtılmasını ve ödemenin 28.05.2026 tarihinde yapılmasını teklif etmiştir.",
+   "summary_en": "The Company's Board of Directors has proposed a gross cash dividend of 1.85 TL per share, totaling 462,500,000 TL from 2025 earnings, with payment planned for 28.05.2026.",
+   "quotes": [
+    "Şirketimizin 2025 yılı faaliyetlerinden elde edilen net dönem kârından, ortaklarımıza pay başına brüt 1,85 TL (%185) tutarında nakit temettü dağıtılması hususunda Yönetim Kurulu karar almıştır.",
+    "Toplam 462.500.000 TL tutarındaki ödemenin 28.05.2026 tarihinde yapılması planlanmakta olup teklif Genel Kurul onayına sunulacaktır."
+   ]
+  },
+  "1d1492d9da08aa331bdcf21c4fd251dbb689e655525b464d1969a730484f7ee8": {
+   "event_type": "contract_tender",
+   "amount": "64.000.000 USD",
+   "date": "12.06.2026",
+   "counterparty": "Brandex Perakende A.Ş.",
+   "summary_tr": "Bağlı ortaklık Hanova Enerji Çözümleri A.Ş., Brandex Perakende A.Ş. ile 64.000.000 USD bedelli ve 36 ay süreli güneş enerjisi santrali kurulum ve bakım çerçeve sözleşmesi imzalamıştır.",
+   "summary_en": "Subsidiary Hanova Enerji Çözümleri A.Ş. signed a 36-month framework agreement with Brandex Perakende A.Ş. for solar power plant installation and maintenance worth 64,000,000 USD.",
+   "quotes": [
+    "36 ay süreli güneş enerjisi santrali kurulum ve bakım çerçeve sözleşmesini 12.06.2026 tarihinde imzalamıştır",
+    "Sözleşme bedeli KDV hariç 64.000.000 USD olup Şirketimizin konsolide hasılatına yıllık yaklaşık %7 katkı sağlaması beklenmektedir"
+   ]
+  },
+  "d656d11046f4ec21b96e6e5ab372a798f6456fc4af0e87f3556697fbd6b0cca0": {
+   "event_type": "m_and_a",
+   "amount": "385.000.000 TL",
+   "date": "02.10.2026",
+   "counterparty": "Tavlan Gıda Sanayi A.Ş.",
+   "summary_tr": "Tavlan Gıda Sanayi A.Ş.'nin sermayesinin %51'ini temsil eden payların 385.000.000 TL bedelle satın alınması için 02.10.2026 tarihinde sözleşme imzalanmıştır.",
+   "summary_en": "A share transfer agreement was signed on 02.10.2026 to acquire 51% of the capital of Tavlan Gıda Sanayi A.Ş. for 385,000,000 TL.",
+   "quotes": [
+    "Tavlan Gıda Sanayi A.Ş.'nin sermayesinin %51'ini temsil eden payların satın alınmasına ilişkin pay devir sözleşmesi 02.10.2026 tarihinde imzalanmıştır.",
+    "Pay devir bedeli 385.000.000 TL olup"
+   ]
+  },
+  "b087e58c6f969a929490a7741ca29ee841df5632094b6869301a1bb05bfea63e": {
+   "event_type": "legal_case",
+   "amount": "38.700.000 TL",
+   "date": "17.12.2025",
+   "counterparty": "Rekabet Kurulu",
+   "summary_tr": "Rekabet Kurulu, şirket hakkında yürütülen soruşturma sonucunda 17.12.2025 tarihinde 38.700.000 TL idari para cezası verilmesine karar vermiştir.",
+   "summary_en": "The Competition Board has decided to impose an administrative fine of 38,700,000 TL on the company on 17.12.2025.",
+   "quotes": [
+    "17.12.2025 tarihli kararıyla 38.700.000 TL idari para cezası verilmesine hükmetmiştir."
+   ]
+  },
+  "453511bf1bd2bedbd924da746e11fd7b84d2d9075c53b004e18e3efac74b7859": [
+   {
+    "event_type": "dividend",
+    "amount": "1,20 TL",
+    "date": "16.11.2026",
+    "counterparty": null,
+    "summary_tr": "Yönetim Kurulu, 2026 yılı kârından pay başına brüt 1,20 TL nakit kâr payı dağıtılmasının Genel Kurul'a teklif edilmesine karar vermiştir.",
+    "summary_en": "The Board of Directors has decided to propose the distribution of a gross cash dividend of 1.20 TL per share from the 2026 profit to the General Assembly.",
+    "quotes": [
+     "16.11.2026 tarihli toplantısında",
+     "pay başına brüt 1,20 TL nakit kâr payı"
+    ]
+   },
+   {
+    "event_type": "buyback",
+    "amount": "5.000.000 adet pay",
+    "date": "16.11.2026",
+    "counterparty": null,
+    "summary_tr": "Yönetim Kurulu, azami 5.000.000 adet paya kadar pay geri alım programı başlatılmasına karar vermiştir.",
+    "summary_en": "The Board of Directors has decided to initiate a share buyback program for up to 5,000,000 shares.",
+    "quotes": [
+     "16.11.2026 tarihli toplantısında",
+     "azami 5.000.000 adet paya kadar pay geri alım programı"
+    ]
+   }
+  ],
+  "9790c20374cc1139a6b63f50c2711b7e1aef33fa8b5a5e09dc95fae8ac9e4eed": {
+   "event_type": "other",
+   "amount": "14.350.000 TL",
+   "date": "16.11.2026",
+   "counterparty": null,
+   "summary_tr": "Şirketin TRFKGRN22610 ISIN kodlu tahvilinin 4. kupon ödemesi olan 14.350.000 TL, 16.11.2026 tarihinde yapılmıştır.",
+   "summary_en": "The 4th coupon payment of 14,350,000 TL for the bond with ISIN TRFKGRN22610 was made on 16.11.2026.",
+   "quotes": [
+    "4. kupon ödemesi 16.11.2026 tarihinde yapılmıştır",
+    "Ödenen toplam kupon tutarı 14.350.000 TL'dir"
+   ]
+  },
+  "02d32aea1908445b7e70adcc24c480f84896409b4def3382e6052bae12ff1dd3": {
+   "event_type": "other",
+   "amount": "14.350.000 TL",
+   "date": "16.11.2026",
+   "counterparty": null,
+   "summary_tr": "TRFKGRN22610 ISIN kodlu tahvilin 16.11.2026 tarihli 4. kupon ödemesi 14.350.000 TL olarak gerçekleştirilmiştir.",
+   "summary_en": "The 4th coupon payment of 14.350.000 TL for the bond with ISIN TRFKGRN22610 was made on 16.11.2026.",
+   "quotes": [
+    "TRFKGRN22610 ISIN kodlu, 250.000.000 TL nominal tutarlı değişken faizli tahvilin 4. kupon ödemesi 16.11.2026 tarihinde yapılmıştır.",
+    "Ödenen toplam kupon tutarı 14.350.000 TL'dir."
+   ]
+  }
+ }
+}

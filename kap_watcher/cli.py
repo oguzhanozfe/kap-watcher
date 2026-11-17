@@ -2,6 +2,7 @@
 
   python -m kap_watcher run inbox/ --watchlist watchlist.json [--keywords-only] [--watch 60]
   python -m kap_watcher eval [--out results/eval.json]
+  python -m kap_watcher demo [--replay]
 """
 from __future__ import annotations
 
@@ -11,7 +12,7 @@ import sys
 import time
 from pathlib import Path
 
-from . import alerts, evaluate, ingest
+from . import alerts, demo, evaluate, ingest
 from .analyze import analyze, analyze_keywords
 
 
@@ -47,7 +48,14 @@ def main(argv=None) -> int:
     e.add_argument("--out", type=Path)
     e.add_argument("--workers", type=int, default=2)
     e.add_argument("--limit", type=int)
+    dm = sub.add_parser("demo", help="run bundled examples; no key needed (key -> Ollama -> recorded replay)")
+    dm.add_argument("--replay", action="store_true", help="force replay of recorded model outputs")
+    dm.add_argument("--record", action="store_true", help="call the configured model and save its outputs for replay")
+    dm.add_argument("--out", type=Path, default=demo.ROOT / "docs" / "index.html", help="HTML page to write")
     args = p.parse_args(argv)
+
+    if args.cmd == "demo":
+        return demo.run(args.replay, args.record, args.out)
 
     if args.cmd == "eval":
         res = evaluate.run(args.data, args.out, args.workers, args.limit)
