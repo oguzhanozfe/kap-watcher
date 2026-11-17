@@ -1,0 +1,1308 @@
+{
+ "dataset": "data/disclosures.jsonl",
+ "n": 65,
+ "keyword_baseline": {
+  "dividend": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "support": 7
+  },
+  "capital_increase": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "support": 7
+  },
+  "buyback": {
+   "precision": 1.0,
+   "recall": 0.833,
+   "f1": 0.909,
+   "support": 6
+  },
+  "contract_tender": {
+   "precision": 1.0,
+   "recall": 0.875,
+   "f1": 0.933,
+   "support": 8
+  },
+  "m_and_a": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "support": 8
+  },
+  "management_change": {
+   "precision": 0.75,
+   "recall": 0.857,
+   "f1": 0.8,
+   "support": 7
+  },
+  "financial_statements": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "support": 6
+  },
+  "legal_case": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "support": 6
+  },
+  "other": {
+   "precision": 0.818,
+   "recall": 0.9,
+   "f1": 0.857,
+   "support": 10
+  },
+  "_accuracy": 0.938,
+  "_macro_f1": 0.944
+ },
+ "model": "qwen3.5:9b",
+ "model_digest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+ "run_date": "2026-11-17",
+ "llm": {
+  "dividend": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "support": 7
+  },
+  "capital_increase": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "support": 7
+  },
+  "buyback": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "support": 6
+  },
+  "contract_tender": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "support": 8
+  },
+  "m_and_a": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "support": 8
+  },
+  "management_change": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "support": 7
+  },
+  "financial_statements": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "support": 6
+  },
+  "legal_case": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "support": 6
+  },
+  "other": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "support": 10
+  },
+  "_accuracy": 1.0,
+  "_macro_f1": 1.0
+ },
+ "llm_errors": 0,
+ "fields": {
+  "amount": 0.877,
+  "date": 0.969,
+  "counterparty": 0.954
+ },
+ "summary_number_check_pass_rate": 0.985,
+ "latency_s_median": 24.7,
+ "items": [
+  {
+   "id": "div-01",
+   "gold": "dividend",
+   "keyword": "dividend",
+   "llm": "dividend",
+   "error": null,
+   "amount": "312.500.000 TL",
+   "date": "28.05.2026",
+   "counterparty": null,
+   "summary_tr": "Şirket Yönetim Kurulu, 2025 yılı faaliyetlerinden elde edilen kârdan toplam 312.500.000 TL nakit kâr payı dağıtılmasına karar vermiştir.",
+   "summary_en": "The Company's Board of Directors has decided to distribute a total cash dividend of 312,500,000 TL from the profits earned in 2025.",
+   "quotes": [
+    "2025 yılı faaliyetlerinden elde edilen kârdan",
+    "toplam 312.500.000 TL nakit kâr payı dağıtılmasının"
+   ],
+   "problems": [],
+   "seconds": 42.1
+  },
+  {
+   "id": "div-02",
+   "gold": "dividend",
+   "keyword": "dividend",
+   "llm": "dividend",
+   "error": null,
+   "amount": null,
+   "date": "02.04.2026",
+   "counterparty": null,
+   "summary_tr": "Şirketin Olağan Genel Kurulu'nda 2025 yılı hesap dönemine ait yasal kayıtlarda dağıtılabilir kâr oluşmadığı gerekçesiyle kâr dağıtımı yapılmamasına karar verilmiştir.",
+   "summary_en": "At the Ordinary General Assembly, a decision was made not to distribute profits due to the absence of distributable profit in the legal records for the 2025 financial period.",
+   "quotes": [
+    "02.04.2026",
+    "2025 yılı hesap dönemine ait yasal kayıtlarda dağıtılabilir kâr oluşmaması nedeniyle kâr dağıtımı yapılmamasına oy birliği ile karar verilmiştir"
+   ],
+   "problems": [],
+   "seconds": 22.6
+  },
+  {
+   "id": "div-03",
+   "gold": "dividend",
+   "keyword": "dividend",
+   "llm": "dividend",
+   "error": null,
+   "amount": "45.000.000 TL",
+   "date": "15.09.2026",
+   "counterparty": null,
+   "summary_tr": "Yönetim Kurulu, 2026 yılı ilk altı aylık ara dönem kârı üzerinden toplam 45.000.000 TL tutarında kâr payı avansı dağıtılmasına karar vermiştir.",
+   "summary_en": "The Board of Management has decided to distribute a total dividend advance of 45,000,000 TL based on the first six-month interim profit of 2026.",
+   "quotes": [
+    "toplam 45.000.000 TL tutarında kâr payı avansı dağıtılmasına karar vermiştir",
+    "Avans ödemesi 15.09.2026 tarihinde Merkezi Kayıt Kuruluşu aracılığıyla yapılacaktır"
+   ],
+   "problems": [],
+   "seconds": 26.1
+  },
+  {
+   "id": "div-04",
+   "gold": "dividend",
+   "keyword": "dividend",
+   "llm": "dividend",
+   "error": null,
+   "amount": null,
+   "date": "10.06.2026",
+   "counterparty": null,
+   "summary_tr": "Nakit kâr payı ödeme tarihi, Genel Kurul tescil sürecindeki gecikme nedeniyle 10.05.2026'dan 10.06.2026'ya revize edilmiştir.",
+   "summary_en": "The cash dividend payment date has been revised from 10.05.2026 to 10.06.2026 due to delays in the General Assembly registration process.",
+   "quotes": [
+    "10.05.2026",
+    "10.06.2026"
+   ],
+   "problems": [],
+   "seconds": 24.0
+  },
+  {
+   "id": "div-05",
+   "gold": "dividend",
+   "keyword": "dividend",
+   "llm": "dividend",
+   "error": null,
+   "amount": "TRY 85,000,000",
+   "date": "20.05.2026",
+   "counterparty": null,
+   "summary_tr": "Yönetim Kurulu, 2025 net dağıtılabilir karından hisse başına brüt nakit temettü olarak TRY 0.85 ödenmesini önerdi.",
+   "summary_en": "The Board of Directors proposed a gross cash dividend of TRY 0.85 per share from the 2025 net distributable profit.",
+   "quotes": [
+    "TRY 0.85",
+    "TRY 85,000,000",
+    "2025"
+   ],
+   "problems": [],
+   "seconds": 44.6
+  },
+  {
+   "id": "div-06",
+   "gold": "dividend",
+   "keyword": "dividend",
+   "llm": "dividend",
+   "error": null,
+   "amount": "%40",
+   "date": null,
+   "counterparty": null,
+   "summary_tr": "Yönetim Kurulu, dağıtılabilir dönem kârının en az %40'ının nakit olarak ortaklara dağıtılmasını öngören güncellenmiş kâr dağıtım politikasını kabul etmiştir.",
+   "summary_en": "The Board of Management has approved an updated dividend distribution policy providing for the distribution of at least 40% of distributable net profit in cash to shareholders.",
+   "quotes": [
+    "%40"
+   ],
+   "problems": [],
+   "seconds": 22.6
+  },
+  {
+   "id": "div-07",
+   "gold": "dividend",
+   "keyword": "dividend",
+   "llm": "dividend",
+   "error": null,
+   "amount": "128.000.000 TL",
+   "date": "05.06.2026",
+   "counterparty": null,
+   "summary_tr": "Genel Kurul tarafından onaylanan 2025 yılı kâr dağıtım tablosuna göre ortaklara toplam 128.000.000 TL brüt nakit kâr payı iki taksitte ödenecektir.",
+   "summary_en": "According to the profit distribution table approved by the General Assembly, a total gross cash dividend of 128,000,000 TL will be paid to shareholders in two installments.",
+   "quotes": [
+    "Genel Kurul tarafından onaylanan 2025 yılı kâr dağıtım tablosuna göre ortaklara toplam 128.000.000 TL brüt nakit kâr payı iki taksitte ödenecektir.",
+    "Birinci taksit 05.06.2026, ikinci taksit 04.12.2026 tarihinde ödenecektir."
+   ],
+   "problems": [],
+   "seconds": 49.1
+  },
+  {
+   "id": "cap-01",
+   "gold": "capital_increase",
+   "keyword": "capital_increase",
+   "llm": "capital_increase",
+   "error": null,
+   "amount": "450.000.000 TL",
+   "date": null,
+   "counterparty": null,
+   "summary_tr": "Şirketin çıkarılmış sermayesi, tamamı iç kaynaklardan karşılanarak %200 oranında bedelsiz olarak 450.000.000 TL'ye artırılmasına karar verilmiştir.",
+   "summary_en": "The company's issued capital will be increased by 200% without payment to 450,000,000 TL, fully funded from internal sources.",
+   "quotes": [
+    "150.000.000 TL",
+    "%200 oranında bedelsiz olarak 450.000.000 TL'ye artırılmasına"
+   ],
+   "problems": [],
+   "seconds": 23.9
+  },
+  {
+   "id": "cap-02",
+   "gold": "capital_increase",
+   "keyword": "capital_increase",
+   "llm": "capital_increase",
+   "error": null,
+   "amount": "500.000.000 TL çıkarılmış sermaye, 1.000.000.000 TL'ye artırılacak",
+   "date": null,
+   "counterparty": null,
+   "summary_tr": "Şirket yönetimi, mevcut ortakların yeni pay alma haklarının kısıtlanmaması koşuluyla çıkarılmış sermayeyi 500.000.000 TL'den 1.000.000.000 TL'ye nakden karşılanarak artırmaya karar vermiştir.",
+   "summary_en": "The company management has decided to increase the issued capital from 500,000,000 TL to 1,000,000,000 TL through cash payment, without restricting existing shareholders' rights to subscribe for new shares.",
+   "quotes": [
+    "500.000.000 TL olan çıkarılmış sermayenin tamamı nakden karşılanmak üzere 1.000.000.000 TL'ye artırılmasına"
+   ],
+   "problems": [],
+   "seconds": 27.7
+  },
+  {
+   "id": "cap-03",
+   "gold": "capital_increase",
+   "keyword": "capital_increase",
+   "llm": "capital_increase",
+   "error": null,
+   "amount": null,
+   "date": "03.07.2026",
+   "counterparty": null,
+   "summary_tr": "Sermaye Piyasası Kurulu'nun 26.06.2026 tarihli toplantısında bedelsiz sermaye artırımına ilişkin ihraç belgesi onaylanmıştır ve bedelsiz payların dağıtımı 03.07.2026 tarihinde başlayacaktır.",
+   "summary_en": "The issuance certificate for the bonus capital increase was approved at the Capital Markets Board meeting held on 26.06.2026, and the distribution of bonus shares will commence on 03.07.2026.",
+   "quotes": [
+    "26.06.2026",
+    "bedelsiz sermaye artırımına ilişkin ihraç belgemiz onaylanmıştır",
+    "03.07.2026"
+   ],
+   "problems": [],
+   "seconds": 23.5
+  },
+  {
+   "id": "cap-04",
+   "gold": "capital_increase",
+   "keyword": "capital_increase",
+   "llm": "capital_increase",
+   "error": null,
+   "amount": "80.000.000 TL",
+   "date": null,
+   "counterparty": "Yeşilvadi Yatırım Holding A.Ş.",
+   "summary_tr": "Şirketin çıkarılmış sermayesi 80.000.000 TL artırılacak ve bu payların tamamı Yeşilvadi Yatırım Holding A.Ş.'ye tahsisli olarak satılacaktır.",
+   "summary_en": "The company's issued capital will be increased by 80,000,000 TL, and all of the increased shares will be allocated for sale to Yeşilvadi Yatırım Holding A.Ş.",
+   "quotes": [
+    "240.000.000 TL",
+    "80.000.000 TL"
+   ],
+   "problems": [],
+   "seconds": 21.9
+  },
+  {
+   "id": "cap-05",
+   "gold": "capital_increase",
+   "keyword": "capital_increase",
+   "llm": "capital_increase",
+   "error": null,
+   "amount": "TRY 500,000,000",
+   "date": null,
+   "counterparty": null,
+   "summary_tr": "Yönetim Kurulu, şirketin sermayesini 100% oranında artırarak toplam TRY 500,000,000 seviyesine çıkarmayı ve bunu iç kaynaklardan finanse edilen bedelsiz sermaye artışı yoluyla gerçekleştirmeyi kararlaştırmıştır.",
+   "summary_en": "The Board of Directors resolved to increase the Company's issued capital by 100% to a total of TRY 500,000,000 through a bonus issue fully funded from internal resources.",
+   "quotes": [
+    "increase the issued capital of the Company from TRY 250,000,000 to TRY 500,000,000 by 100%",
+    "bonus issue fully funded from internal resources"
+   ],
+   "problems": [],
+   "seconds": 52.2
+  },
+  {
+   "id": "cap-06",
+   "gold": "capital_increase",
+   "keyword": "capital_increase",
+   "llm": "capital_increase",
+   "error": null,
+   "amount": "1,00 TL",
+   "date": "12.10.2026 - 26.10.2026",
+   "counterparty": null,
+   "summary_tr": "Şirket, bedelli sermaye artırımında yeni pay alma haklarının kullanım süresini 12.10.2026 ile 26.10.2026 tarihleri arasında belirlemiştir.",
+   "summary_en": "The company has determined the usage period for new rights to acquire shares in a paid-in capital increase between 12.10.2026 and 26.10.2026.",
+   "quotes": [
+    "12.10.2026 - 26.10.2026",
+    "1 TL nominal değerli pay için kullanım fiyatı 1,00 TL"
+   ],
+   "problems": [],
+   "seconds": 23.6
+  },
+  {
+   "id": "cap-07",
+   "gold": "capital_increase",
+   "keyword": "capital_increase",
+   "llm": "capital_increase",
+   "error": null,
+   "amount": "120.000.000 TL'den 20.000.000 TL'ye azaltılmasına ve eş anlı olarak nakden 200.000.000 TL artırılarak 220.000.000 TL'ye çıkarılmasına",
+   "date": null,
+   "counterparty": null,
+   "summary_tr": "Şirket, geçmiş yıl zararlarının mahsubu amacıyla sermayesini 120.000.000 TL'den 20.000.000 TL'ye azaltmaya ve eş zamanlı olarak nakden 200.000.000 TL artırarak toplam 220.000.000 TL'ye çıkarmaya karar vermiştir.",
+   "summary_en": "The company has decided to reduce its capital from 120,000,000 TL to 20,000,000 TL to cover past year losses and simultaneously increase it by 200,000,000 TL in cash to reach a total of 220,000,000 TL.",
+   "quotes": [
+    "120.000.000 TL'den 20.000.000 TL'ye azaltılmasına",
+    "nakden 200.000.000 TL artırılarak 220.000.000 TL'ye çıkarılmasına"
+   ],
+   "problems": [],
+   "seconds": 32.6
+  },
+  {
+   "id": "buy-01",
+   "gold": "buyback",
+   "keyword": "buyback",
+   "llm": "buyback",
+   "error": null,
+   "amount": "50.000.000 TL",
+   "date": null,
+   "counterparty": null,
+   "summary_tr": "Yönetim Kurulu, pay fiyatının şirket performansını yansıtmadığı gerekçesiyle azami 2.000.000 adet payın geri alınmasına ve bu amaçla en fazla 50.000.000 TL fon ayrılmasına karar vermiştir.",
+   "summary_en": "The Board of Management has decided to repurchase a maximum of 2,000,000 shares and allocate up to 50,000,000 TL for this purpose, as the share price does not reflect the company's actual performance.",
+   "quotes": [
+    "azami 2.000.000 adet payın geri alınmasına",
+    "en fazla 50.000.000 TL fon ayrılmasına"
+   ],
+   "problems": [],
+   "seconds": 28.8
+  },
+  {
+   "id": "buy-02",
+   "gold": "buyback",
+   "keyword": "buyback",
+   "llm": "buyback",
+   "error": null,
+   "amount": "10.627.500 TL",
+   "date": "18.11.2026",
+   "counterparty": null,
+   "summary_tr": "Şirket, 18 Kasım 2026 tarihinde Borsa İstanbul'da 42,10 TL ile 42,80 TL arasında bir fiyat aralığından toplam 250.000 adet payını geri almıştır.",
+   "summary_en": "The company repurchased a total of 250,000 shares on November 18, 2026, from the Borsa Istanbul at a price range between 42.10 TL and 42.80 TL.",
+   "quotes": [
+    "18.11.2026",
+    "42,10 TL - 42,80 TL",
+    "250.000 adet payını",
+    "10.627.500 TL"
+   ],
+   "problems": [],
+   "seconds": 25.9
+  },
+  {
+   "id": "buy-03",
+   "gold": "buyback",
+   "keyword": "buyback",
+   "llm": "buyback",
+   "error": null,
+   "amount": "TRY 7,401,000",
+   "date": "14.10.2026",
+   "counterparty": null,
+   "summary_tr": "Şirket, Borsa İstanbul'da kendi hisselerinin 120.000 adetini, TRY 61.20 ile TRY 62.05 arasında değişen fiyatlarla toplamda TRY 7,401,000 karşılığında geri satın almıştır.",
+   "summary_en": "The Company repurchased 120,000 of its own shares on Borsa Istanbul at prices between TRY 61.20 and TRY 62.05 for a total consideration of TRY 7,401,000.",
+   "quotes": [
+    "120,000",
+    "TRY 61.20",
+    "TRY 62.05",
+    "TRY 7,401,000"
+   ],
+   "problems": [],
+   "seconds": 26.2
+  },
+  {
+   "id": "buy-04",
+   "gold": "buyback",
+   "keyword": "buyback",
+   "llm": "buyback",
+   "error": null,
+   "amount": null,
+   "date": "30.09.2026",
+   "counterparty": null,
+   "summary_tr": "Yönetim Kurulu, 21.03.2026'da başlatılan pay geri alım programının fonun tamamının kullanılması nedeniyle 30.09.2026 tarihinde sona erdirilmesine karar vermiştir.",
+   "summary_en": "The Board of Management has decided to terminate the share buyback programme initiated on 21.03.2026 as of 30.09.2026 due to the full utilisation of the allocated funds.",
+   "quotes": [
+    "21.03.2026",
+    "30.09.2026"
+   ],
+   "problems": [],
+   "seconds": 25.3
+  },
+  {
+   "id": "buy-05",
+   "gold": "buyback",
+   "keyword": "other",
+   "llm": "buyback",
+   "error": null,
+   "amount": "1.840.000 TL",
+   "date": "07.08.2026",
+   "counterparty": "Camtaş Pazarlama A.Ş.",
+   "summary_tr": "Şirketin bağlı ortaklığı Camtaş Pazarlama A.Ş., 07.08.2026 tarihinde şirket paylarından 100.000 adet payı satın almıştır.",
+   "summary_en": "The company's subsidiary, Camtaş Pazarlama A.Ş., purchased 100,000 shares of the company on 07.08.2026.",
+   "quotes": [
+    "07.08.2026",
+    "100.000 adet payı",
+    "1.840.000 TL"
+   ],
+   "problems": [],
+   "seconds": 27.2
+  },
+  {
+   "id": "buy-06",
+   "gold": "buyback",
+   "keyword": "buyback",
+   "llm": "buyback",
+   "error": null,
+   "amount": "33,50 TL",
+   "date": "22.09.2026",
+   "counterparty": null,
+   "summary_tr": "Şirket, daha önce geri aldığı payların 500.000 adedini 22.09.2026 tarihinde Borsa İstanbul'da ortalama 33,50 TL fiyattan satmıştır.",
+   "summary_en": "The company sold 500,000 previously repurchased shares on the Istanbul Stock Exchange at an average price of 33.50 TL on September 22, 2026.",
+   "quotes": [
+    "500.000 adedi",
+    "22.09.2026",
+    "33,50 TL"
+   ],
+   "problems": [],
+   "seconds": 27.1
+  },
+  {
+   "id": "con-01",
+   "gold": "contract_tender",
+   "keyword": "contract_tender",
+   "llm": "contract_tender",
+   "error": null,
+   "amount": "1.245.000.000 TL + KDV",
+   "date": "09.11.2026",
+   "counterparty": "TCDD Taşımacılık A.Ş.",
+   "summary_tr": "Şirketimiz, TCDD Taşımacılık A.Ş.'nin düzenlediği yük vagonu imalatı ihalesini 1.245.000.000 TL + KDV bedelle kazanmıştır ve sözleşme 09.11.2026 tarihinde imzalanacaktır.",
+   "summary_en": "The company has won the freight wagon manufacturing tender organized by TCDD Taşımacılık A.Ş. with a value of 1,245,000,000 TL + VAT, and the contract will be signed on 09.11.2026.",
+   "quotes": [
+    "1.245.000.000 TL + KDV",
+    "09.11.2026"
+   ],
+   "problems": [],
+   "seconds": 28.1
+  },
+  {
+   "id": "con-02",
+   "gold": "contract_tender",
+   "keyword": "contract_tender",
+   "llm": "contract_tender",
+   "error": null,
+   "amount": "18.500.000 EUR",
+   "date": null,
+   "counterparty": "Hessler Automotive GmbH",
+   "summary_tr": "Şirketimiz ile Almanya merkezli Hessler Automotive GmbH arasında 2027-2029 yıllarını kapsayan bir döküm parça tedarik sözleşmesi imzalanmıştır.",
+   "summary_en": "A casting part supply contract covering the years 2027-2029 has been signed between our company and Hessler Automotive GmbH based in Germany.",
+   "quotes": [
+    "18.500.000 EUR",
+    "2027-2029"
+   ],
+   "problems": [],
+   "seconds": 27.8
+  },
+  {
+   "id": "con-03",
+   "gold": "contract_tender",
+   "keyword": "contract_tender",
+   "llm": "contract_tender",
+   "error": null,
+   "amount": "USD 42 million",
+   "date": "30.06.2028",
+   "counterparty": "Northfield Energy GmbH",
+   "summary_tr": "Şirket, Northfield Energy GmbH ile 60 MW'lık bir güneş enerjisi santrali için anahtar teslim mühendislik, temin ve inşaat anlaşması imzaladı.",
+   "summary_en": "The Company signed a turnkey engineering, procurement and construction agreement with Northfield Energy GmbH for a 60 MW solar power plant.",
+   "quotes": [
+    "60 MW",
+    "USD 42 million",
+    "30.06.2028"
+   ],
+   "problems": [],
+   "seconds": 43.5
+  },
+  {
+   "id": "con-04",
+   "gold": "contract_tender",
+   "keyword": "contract_tender",
+   "llm": "contract_tender",
+   "error": null,
+   "amount": "96.400.000 TL",
+   "date": null,
+   "counterparty": "Sağlık Bakanlığı",
+   "summary_tr": "Şirketimizin Sağlık Bakanlığı tarafından açılan hastane bilgi sistemleri ihalesinde sunduğu 96.400.000 TL tutarındaki teklif en avantajlı olarak belirlenmiştir.",
+   "summary_en": "The company's bid of 96,400,000 TL for the hospital information systems tender opened by the Ministry of Health has been determined as the most advantageous offer.",
+   "quotes": [
+    "96.400.000 TL",
+    "Sağlık Bakanlığı"
+   ],
+   "problems": [],
+   "seconds": 20.5
+  },
+  {
+   "id": "con-05",
+   "gold": "contract_tender",
+   "keyword": "contract_tender",
+   "llm": "contract_tender",
+   "error": null,
+   "amount": "3.200.000 USD",
+   "date": null,
+   "counterparty": null,
+   "summary_tr": "Şirket, yurt dışında yerleşik bir savunma sanayi müşterisinden 3.200.000 USD tutarında elektro-optik sistem siparişi almıştır.",
+   "summary_en": "The company has received an order for electro-optical systems worth 3,200,000 USD from a defense industry customer based abroad.",
+   "quotes": [
+    "3.200.000 USD"
+   ],
+   "problems": [],
+   "seconds": 23.1
+  },
+  {
+   "id": "con-06",
+   "gold": "contract_tender",
+   "keyword": "contract_tender",
+   "llm": "contract_tender",
+   "error": null,
+   "amount": null,
+   "date": null,
+   "counterparty": "İstanbul Büyükşehir Belediyesi",
+   "summary_tr": "Şirketimiz, İstanbul Büyükşehir Belediyesi tarafından düzenlenen metro aracı bakım ihalesine vermiş olduğu teklifin ikinci en avantajlı teklif olarak değerlendirildiğini ve ihalenin şirketimize kalmadığını açıklamıştır.",
+   "summary_en": "The company disclosed that its bid for the Istanbul Metropolitan Municipality's metro vehicle maintenance tender was evaluated as the second most advantageous, and the tender did not remain with our company.",
+   "quotes": [
+    "İstanbul Büyükşehir Belediyesi tarafından düzenlenen metro aracı bakım ihalesine verdiğimiz teklif ikinci en avantajlı teklif olarak değerlendirilmiş olup ihale şirketimiz üzerinde kalmamıştır."
+   ],
+   "problems": [],
+   "seconds": 26.9
+  },
+  {
+   "id": "con-07",
+   "gold": "contract_tender",
+   "keyword": "contract_tender",
+   "llm": "contract_tender",
+   "error": null,
+   "amount": null,
+   "date": null,
+   "counterparty": "Moda Lucero S.L.",
+   "summary_tr": "Şirketimiz, İspanyol perakende zinciri Moda Lucero S.L. ile İspanya ve Portekiz'deki mağazalarda ürün satışı için 3 yıl süreli münhasır distribütörlük sözleşmesi imzalamıştır.",
+   "summary_en": "The company has signed an exclusive distribution agreement with Spanish retail chain Moda Lucero S.L. for selling its products in stores in Spain and Portugal over a period of 3 years.",
+   "quotes": [
+    "3 yıl süreli münhasır distribütörlük sözleşmesi",
+    "İspanya ve Portekiz'deki mağazalarda"
+   ],
+   "problems": [],
+   "seconds": 26.8
+  },
+  {
+   "id": "con-08",
+   "gold": "contract_tender",
+   "keyword": "management_change",
+   "llm": "contract_tender",
+   "error": null,
+   "amount": "2.310.750.000 TL",
+   "date": "27.11.2026",
+   "counterparty": "Karayolları Genel Müdürlüğü",
+   "summary_tr": "Şirket, Karayolları Genel Müdürlüğü ile imzalanan sözleşme kapsamında 42 km'lik bölünmüş yol yapım işini üstlenmiştir.",
+   "summary_en": "The company has undertaken a 42 km divided road construction project under the contract signed with the General Directorate of Highways.",
+   "quotes": [
+    "2.310.750.000 TL",
+    "42 km'lik bölünmüş yol yapım işi",
+    "27.11.2026"
+   ],
+   "problems": [],
+   "seconds": 23.7
+  },
+  {
+   "id": "mna-01",
+   "gold": "m_and_a",
+   "keyword": "m_and_a",
+   "llm": "m_and_a",
+   "error": null,
+   "amount": "750.000.000 TL",
+   "date": null,
+   "counterparty": "Ege Tarım Ürünleri A.Ş.",
+   "summary_tr": "Şirketimiz, Ege Tarım Ürünleri A.Ş.'nin sermayesinin %100'ünü temsil eden paylarını 750.000.000 TL bedelle satın almak amacıyla pay devir sözleşmesi imzalamıştır.",
+   "summary_en": "The company has signed a share transfer agreement to acquire 100% of the shares of Ege Tarım Ürünleri A.Ş. for a consideration of 750,000,000 TL.",
+   "quotes": [
+    "Ege Tarım Ürünleri A.Ş.'nin sermayesinin %100'ünü temsil eden paylarının 750.000.000 TL bedelle satın alınması"
+   ],
+   "problems": [],
+   "seconds": 24.7
+  },
+  {
+   "id": "mna-02",
+   "gold": "m_and_a",
+   "keyword": "m_and_a",
+   "llm": "m_and_a",
+   "error": null,
+   "amount": null,
+   "date": null,
+   "counterparty": "Camtaş Ambalaj A.Ş.",
+   "summary_tr": "Şirketimizin %100 bağlı ortaklığı olan Camtaş Ambalaj A.Ş.'nin tüm varlıkları ve yükümlülükleriyle birlikte birleşme kararı verilmiştir.",
+   "summary_en": "A merger decision has been made for the company to acquire all assets and liabilities of its 100% subsidiary, Camtaş Ambalaj A.Ş., in a simplified procedure.",
+   "quotes": [
+    "%100 oranında bağlı ortaklığı Camtaş Ambalaj A.Ş.",
+    "tüm aktif ve pasifiyle bir kül halinde Şirketimiz tarafından devralınması suretiyle kolaylaştırılmış usulde birleşilmesine karar verilmiştir",
+    "Birleşme sonucunda sermaye artırımı yapılmayacaktır"
+   ],
+   "problems": [],
+   "seconds": 25.8
+  },
+  {
+   "id": "mna-03",
+   "gold": "m_and_a",
+   "keyword": "m_and_a",
+   "llm": "m_and_a",
+   "error": null,
+   "amount": "22.000.000 USD",
+   "date": "16.10.2026",
+   "counterparty": "Kuzey Sermaye Ortaklığı A.Ş.",
+   "summary_tr": "Şirketin %35 oranındaki iştiraki olan Mavi Liman İşletmeleri A.Ş.'nin paylarının tamamının Kuzey Sermaye Ortaklığı A.Ş.'ye 22.000.000 USD bedelle satışı için sözleşme imzalanmıştır.",
+   "summary_en": "A contract has been signed for the sale of all shares of Mavi Liman İşletmeleri A.Ş., a 35% subsidiary, to Kuzey Sermaye Ortaklığı A.Ş. for a price of 22,000,000 USD.",
+   "quotes": [
+    "%35 oranında",
+    "Mavi Liman İşletmeleri A.Ş.",
+    "22.000.000 USD",
+    "Kuzey Sermaye Ortaklığı A.Ş.",
+    "16.10.2026"
+   ],
+   "problems": [],
+   "seconds": 27.2
+  },
+  {
+   "id": "mna-04",
+   "gold": "m_and_a",
+   "keyword": "m_and_a",
+   "llm": "m_and_a",
+   "error": null,
+   "amount": "GBP 9.3 million",
+   "date": "02.09.2026",
+   "counterparty": "Brightloop Analytics Ltd.",
+   "summary_tr": "Şirket, toplam bedeli GBP 9.3 milyon olan Brightloop Analytics Ltd.'nin %60 payını 02.09.2026 tarihinde tamamladı.",
+   "summary_en": "The Company completed the acquisition of a 60% stake in Brightloop Analytics Ltd. for a total consideration of GBP 9.3 million on 02.09.2026.",
+   "quotes": [
+    "GBP 9.3 million",
+    "60%",
+    "02.09.2026"
+   ],
+   "problems": [],
+   "seconds": 53.1
+  },
+  {
+   "id": "mna-05",
+   "gold": "m_and_a",
+   "keyword": "m_and_a",
+   "llm": "m_and_a",
+   "error": null,
+   "amount": "10.000.000 EUR",
+   "date": null,
+   "counterparty": "Baltık Lojistik AS",
+   "summary_tr": "Şirketimiz ile Baltık Lojistik AS arasında Karadeniz-Baltık hattında intermodal taşımacılık için eşit pay oranlı bir ortak girişim şirketi kurulmasına ilişkin anlaşma imzalanmıştır.",
+   "summary_en": "An agreement has been signed between the Company and Baltık Lojistik AS to establish a joint venture company with equal share ratios for intermodal transportation on the Black Sea-Baltic route.",
+   "quotes": [
+    "10.000.000 EUR"
+   ],
+   "problems": [],
+   "seconds": 26.4
+  },
+  {
+   "id": "mna-06",
+   "gold": "m_and_a",
+   "keyword": "m_and_a",
+   "llm": "m_and_a",
+   "error": null,
+   "amount": null,
+   "date": null,
+   "counterparty": "Makina Enerji Üretim A.Ş.",
+   "summary_tr": "Şirket, enerji üretim faaliyetlerinin kısmi bölünme yoluyla yeni kurulacak Makina Enerji Üretim A.Ş.'ye devredilmesine ve yeni şirketin paylarının tamamının Şirket'e ait olmasına karar vermiştir.",
+   "summary_en": "The company has decided to transfer its energy production activities via a partial division to the newly established Makina Enerji Üretim A.Ş., with all shares of the new company belonging to the Company.",
+   "quotes": [],
+   "problems": [],
+   "seconds": 44.6
+  },
+  {
+   "id": "mna-07",
+   "gold": "m_and_a",
+   "keyword": "m_and_a",
+   "llm": "m_and_a",
+   "error": null,
+   "amount": null,
+   "date": null,
+   "counterparty": null,
+   "summary_tr": "Şirketimiz, uydu haberleşmesi faaliyet alanına sahip bir teknoloji şirketinin çoğunluk paylarının satın alınmasına yönelik bağlayıcı olmayan bir niyet mektubu imzaladığını ve hukuki ve finansal inceleme sürecini başlattığını açıklamıştır.",
+   "summary_en": "The company announced that it has signed a non-binding letter of intent regarding the acquisition of a controlling stake in a technology company engaged in satellite communications and has initiated legal and financial due diligence.",
+   "quotes": [
+    "faaliyet alanı uydu haberleşmesi olan bir teknoloji şirketinin çoğunluk paylarının satın alınmasına yönelik bağlayıcı olmayan bir niyet mektubu imzalamış olup hukuki ve finansal inceleme süreci başlatılmıştır"
+   ],
+   "problems": [],
+   "seconds": 42.4
+  },
+  {
+   "id": "mna-08",
+   "gold": "m_and_a",
+   "keyword": "m_and_a",
+   "llm": "m_and_a",
+   "error": null,
+   "amount": null,
+   "date": null,
+   "counterparty": "Atlas Altyapı Yatırımları A.Ş.",
+   "summary_tr": "Bronz Holding A.Ş., şirket sermayesinin %51'ini temsil eden paylarının Atlas Altyapı Yatırımları A.Ş.'ye devri için sözleşme imzaladığını bildirmiştir.",
+   "summary_en": "Bronz Holding A.Ş. announced that it has signed an agreement to transfer shares representing 51% of its capital to Atlas Altyapı Yatırımları A.Ş.",
+   "quotes": [
+    "%51",
+    "Atlas Altyapı Yatırımları A.Ş."
+   ],
+   "problems": [],
+   "seconds": 21.9
+  },
+  {
+   "id": "mgt-01",
+   "gold": "management_change",
+   "keyword": "management_change",
+   "llm": "management_change",
+   "error": null,
+   "amount": null,
+   "date": "31.12.2026",
+   "counterparty": "Ahmet Yılmaz, Selin Demir",
+   "summary_tr": "Şirket Genel Müdürü Ahmet Yılmaz'ın 31.12.2026 tarihinde emekliye ayrılacağı ve yerine Selin Demir'in 01.01.2027 tarihinden itibaren atanmasına karar verilmiştir.",
+   "summary_en": "It has been decided that the General Manager, Ahmet Yılmaz, will retire on 31.12.2026 and be replaced by Selin Demir effective from 01.01.2027.",
+   "quotes": [
+    "31.12.2026",
+    "01.01.2027"
+   ],
+   "problems": [],
+   "seconds": 25.0
+  },
+  {
+   "id": "mgt-02",
+   "gold": "management_change",
+   "keyword": "management_change",
+   "llm": "management_change",
+   "error": null,
+   "amount": null,
+   "date": "04.08.2026",
+   "counterparty": "Murat Kaya, Ayşe Çelik",
+   "summary_tr": "Yönetim Kurulu Üyesi Murat Kaya, kişisel nedenlerle 04.08.2026 tarihi itibarıyla görevinden istifa etmiştir.",
+   "summary_en": "Board Member Murat Kaya has resigned from his position effective 04.08.2026 due to personal reasons.",
+   "quotes": [
+    "04.08.2026"
+   ],
+   "problems": [],
+   "seconds": 24.6
+  },
+  {
+   "id": "mgt-03",
+   "gold": "management_change",
+   "keyword": "management_change",
+   "llm": "management_change",
+   "error": null,
+   "amount": null,
+   "date": "15.10.2026",
+   "counterparty": "Deniz Öztürk",
+   "summary_tr": "Mali İşlerden Sorumlu Genel Müdür Yardımcısı Emre Arslan'ın görevinden ayrılması üzerine, Deniz Öztürk bu göreve atanmıştır.",
+   "summary_en": "Following the departure of Deputy General Manager in charge of Financial Affairs, Emre Arslan, Deniz Öztürk has been appointed to this position.",
+   "quotes": [
+    "15.10.2026",
+    "Mali İşlerden Sorumlu Genel Müdür Yardımcımız Emre Arslan'ın görevinden ayrılması üzerine, bu göreve 15.10.2026 tarihi itibarıyla Deniz Öztürk atanmıştır."
+   ],
+   "problems": [],
+   "seconds": 23.2
+  },
+  {
+   "id": "mgt-04",
+   "gold": "management_change",
+   "keyword": "management_change",
+   "llm": "management_change",
+   "error": null,
+   "amount": null,
+   "date": "30.11.2026",
+   "counterparty": "Kerem Aydın, Leyla Şahin",
+   "summary_tr": "Şirketin Genel Müdürü (CEO) Bay Kerem Aydın'ın 30.11.2026 tarihinde görevden ayrıldığını ve yerine mevcut Operasyonlar Başkanı Bayan Leyla Şahin'in geçici CEO olarak atandığını bildirmektedir.",
+   "summary_en": "The company announces that its Chief Executive Officer, Mr. Kerem Aydın, has resigned effective 30.11.2026, and Ms. Leyla Şahin, currently the Chief Operating Officer, has been appointed as acting CEO.",
+   "quotes": [
+    "30.11.2026",
+    "Mr. Kerem Aydın",
+    "Ms. Leyla Şahin"
+   ],
+   "problems": [],
+   "seconds": 24.7
+  },
+  {
+   "id": "mgt-05",
+   "gold": "management_change",
+   "keyword": "management_change",
+   "llm": "management_change",
+   "error": null,
+   "amount": null,
+   "date": null,
+   "counterparty": "Gülay Tunç",
+   "summary_tr": "Prof. Dr. Hakan Erdem'in istifasıyla boşalan Bağımsız Yönetim Kurulu üyeliğine Gülay Tunç atanmıştır.",
+   "summary_en": "Gülay Tunç has been appointed to the vacant Independent Board Member position following the resignation of Prof. Dr. Hakan Erdem.",
+   "quotes": [],
+   "problems": [],
+   "seconds": 23.1
+  },
+  {
+   "id": "mgt-06",
+   "gold": "management_change",
+   "keyword": "management_change",
+   "llm": "management_change",
+   "error": null,
+   "amount": null,
+   "date": null,
+   "counterparty": "Cem Aksoy, Nur Ekinci",
+   "summary_tr": "Genel Kurul sonrası yapılan Yönetim Kurulu toplantısında Cem Aksoy Yönetim Kurulu Başkanlığı'na ve Nur Ekinci Başkan Vekilliği'ne seçilmiştir.",
+   "summary_en": "Following the General Assembly meeting, Cem Aksoy was elected as Chairman of the Board and Nur Ekinci as Deputy Chairman in a subsequent Board meeting.",
+   "quotes": [
+    "Yönetim Kurulu Başkanlığı'na Cem Aksoy",
+    "Başkan Vekilliği'ne Nur Ekinci"
+   ],
+   "problems": [],
+   "seconds": 21.8
+  },
+  {
+   "id": "mgt-07",
+   "gold": "management_change",
+   "keyword": "other",
+   "llm": "management_change",
+   "error": null,
+   "amount": null,
+   "date": "03.11.2026",
+   "counterparty": "Elif Aydoğan",
+   "summary_tr": "Burak Koç'un görevinden ayrılması nedeniyle Elif Aydoğan, Yatırımcı İlişkileri Bölüm Yöneticisi olarak 03.11.2026 tarihinden itibaren göreve başlamıştır.",
+   "summary_en": "Due to Burak Koç's departure from his position, Elif Aydoğan has been appointed as the Head of Investor Relations Section effective 03.11.2026.",
+   "quotes": [
+    "03.11.2026"
+   ],
+   "problems": [],
+   "seconds": 27.4
+  },
+  {
+   "id": "fin-01",
+   "gold": "financial_statements",
+   "keyword": "financial_statements",
+   "llm": "financial_statements",
+   "error": null,
+   "amount": "18.420.300.000 TL, 1.240.500.000 TL",
+   "date": "01.01.2026 - 30.09.2026",
+   "counterparty": null,
+   "summary_tr": "Şirketin 01.01.2026 ile 30.09.2026 dönemine ait konsolide finansal tablolar sunulmuştur; bu dönemde hasılat 18.420.300.000 TL ve ana ortaklığa ait net dönem kârı 1.240.500.000 TL olarak gerçekleşmiştir.",
+   "summary_en": "The company's consolidated financial statements for the period from 01.01.2026 to 30.09.2026 are presented; during this period, revenue reached 18.420.300.000 TL and net profit attributable to the parent company was 1.240.500.000 TL.",
+   "quotes": [
+    "01.01.2026 - 30.09.2026",
+    "18.420.300.000 TL",
+    "1.240.500.000 TL"
+   ],
+   "problems": [],
+   "seconds": 31.9
+  },
+  {
+   "id": "fin-02",
+   "gold": "financial_statements",
+   "keyword": "financial_statements",
+   "llm": "financial_statements",
+   "error": null,
+   "amount": "TRY 6,812,000,000",
+   "date": "30.06.2026",
+   "counterparty": null,
+   "summary_tr": "Şirketin 30.06.2026 tarihine kadar olan altı aylık konsolide finansal tabloları eklenmiştir; gelir TRY 6,812,000,000 ve hissedarlara ait net zarar TRY 214,600,000 olarak gerçekleşmiştir.",
+   "summary_en": "The company's consolidated financial statements for the six-month period ended 30.06.2026 are attached; revenue was TRY 6,812,000,000 and net loss attributable to equity holders was TRY 214,600,000.",
+   "quotes": [
+    "TRY 6,812,000,000",
+    "30.06.2026",
+    "TRY 214,600,000"
+   ],
+   "problems": [],
+   "seconds": 28.2
+  },
+  {
+   "id": "fin-03",
+   "gold": "financial_statements",
+   "keyword": "financial_statements",
+   "llm": "financial_statements",
+   "error": null,
+   "amount": null,
+   "date": "31.12.2025",
+   "counterparty": "Denetim Ortakları YMM A.Ş.",
+   "summary_tr": "Şirketimizin 31.12.2025 tarihinde sona eren hesap dönemine ait konsolide finansal tablolarına ilişkin bağımsız denetim raporu, Denetim Ortakları YMM A.Ş. tarafından olumlu görüş ile düzenlenmiştir.",
+   "summary_en": "The independent audit report on the consolidated financial statements for the period ending 31.12.2025 has been issued with an unqualified opinion by Denetim Ortakları YMM A.Ş.",
+   "quotes": [
+    "31.12.2025",
+    "Denetim Ortakları YMM A.Ş."
+   ],
+   "problems": [],
+   "seconds": 24.8
+  },
+  {
+   "id": "fin-04",
+   "gold": "financial_statements",
+   "keyword": "financial_statements",
+   "llm": "financial_statements",
+   "error": null,
+   "amount": null,
+   "date": "01.01.2026 - 30.06.2026",
+   "counterparty": null,
+   "summary_tr": "Şirketin 01.01.2026 ile 30.06.2026 tarihleri arasındaki dönemine ait Yönetim Kurulu faaliyet raporu ekte sunulmuştur.",
+   "summary_en": "The Management Board activity report for the period from 01.01.2026 to 30.06.2026 is attached.",
+   "quotes": [
+    "01.01.2026 - 30.06.2026"
+   ],
+   "problems": [],
+   "seconds": 19.9
+  },
+  {
+   "id": "fin-05",
+   "gold": "financial_statements",
+   "keyword": "financial_statements",
+   "llm": "financial_statements",
+   "error": null,
+   "amount": null,
+   "date": "25.11.2026",
+   "counterparty": null,
+   "summary_tr": "Şirketin yurt dışı bağlı ortaklıklarının konsolidasyon çalışmaları tamamlanamadığı için 30.09.2026 tarihli ara dönem finansal tablolarının yasal süre içinde açıklanamayacağı bildirilmiştir.",
+   "summary_en": "The company announced that its interim financial statements for the period ending 30.09.2026 cannot be published within the legal timeframe due to incomplete consolidation of its foreign subsidiaries.",
+   "quotes": [
+    "30.09.2026",
+    "25.11.2026"
+   ],
+   "problems": [],
+   "seconds": 19.3
+  },
+  {
+   "id": "fin-06",
+   "gold": "financial_statements",
+   "keyword": "financial_statements",
+   "llm": "financial_statements",
+   "error": null,
+   "amount": "37.900.000 TL",
+   "date": "31.12.2025",
+   "counterparty": null,
+   "summary_tr": "Şirket, 31.12.2025 tarihli konsolide finansal tablolarında kiralama işlemlerine ilişkin bir hata tespit etmiş ve düzeltme sonucunda geçmiş yıl kârı 37.900.000 TL azalmıştır.",
+   "summary_en": "The company identified an error in the consolidated financial statements dated 31.12.2025 related to lease accounting, resulting in a decrease of 37,900,000 TL in prior year profit after correction.",
+   "quotes": [
+    "31.12.2025",
+    "37.900.000 TL"
+   ],
+   "problems": [],
+   "seconds": 19.8
+  },
+  {
+   "id": "leg-01",
+   "gold": "legal_case",
+   "keyword": "legal_case",
+   "llm": "legal_case",
+   "error": null,
+   "amount": "85.000.000 TL",
+   "date": null,
+   "counterparty": "Rekabet Kurumu",
+   "summary_tr": "Şirketimiz aleyhine Rekabet Kurumu tarafından yürütülen soruşturma sonucunda 85.000.000 TL idari para cezası verilmesine karar verilmiştir.",
+   "summary_en": "A decision was made to impose an administrative fine of 85,000,000 TL against our company following an investigation conducted by the Competition Authority.",
+   "quotes": [
+    "85.000.000 TL",
+    "Rekabet Kurumu"
+   ],
+   "problems": [],
+   "seconds": 19.4
+  },
+  {
+   "id": "leg-02",
+   "gold": "legal_case",
+   "keyword": "legal_case",
+   "llm": "legal_case",
+   "error": null,
+   "amount": "120.000.000 TL",
+   "date": null,
+   "counterparty": "Vergi Denetim Kurulu",
+   "summary_tr": "Şirketimize 2022 ve 2023 yıllarına ilişkin olarak Vergi Denetim Kurulu tarafından 120.000.000 TL'lik vergi ve vergi ziyaı cezası tarh edilmiştir.",
+   "summary_en": "A tax and penalty of 120,000,000 TL has been levied on the company by the Tax Inspection Board for the years 2022 and 2023.",
+   "quotes": [
+    "Vergi Denetim Kurulu tarafından 2022 ve 2023 yıllarına ilişkin yapılan inceleme sonucunda Şirketimiz adına 120.000.000 TL vergi ve vergi ziyaı cezası tarh edilmiştir."
+   ],
+   "problems": [],
+   "seconds": 20.0
+  },
+  {
+   "id": "leg-03",
+   "gold": "legal_case",
+   "keyword": "legal_case",
+   "llm": "legal_case",
+   "error": null,
+   "amount": "USD 6.4 million",
+   "date": null,
+   "counterparty": "Marlow Shipping Ltd.",
+   "summary_tr": "Şirket, İstanbul Ticaret Mahkemesi'nde charter anlaşmasının ihlali iddiasıyla Marlow Shipping Ltd.'ye karşı 6.4 milyon dolar tazminat talepli bir dava açıldığını bildirmektedir.",
+   "summary_en": "The Company notifies that a lawsuit has been filed against it by Marlow Shipping Ltd. before the Istanbul Commercial Court, claiming USD 6.4 million in damages for alleged breach of a charter agreement.",
+   "quotes": [
+    "USD 6.4 million"
+   ],
+   "problems": [],
+   "seconds": 19.8
+  },
+  {
+   "id": "leg-04",
+   "gold": "legal_case",
+   "keyword": "legal_case",
+   "llm": "legal_case",
+   "error": null,
+   "amount": "54.000.000 TL",
+   "date": "12.11.2026",
+   "counterparty": "Doğu İnşaat A.Ş.",
+   "summary_tr": "Şirketimiz, Doğu İnşaat A.Ş.'ye karşı açılan 54.000.000 TL tutarlı alacak davasının 12.11.2026 tarihinde Şirket lehine sonuçlandığını bildirmektedir.",
+   "summary_en": "The company announces that the lawsuit for a claim of 54,000,000 TL filed against it by Doğu İnşaat A.Ş. has been decided in its favor on 12.11.2026.",
+   "quotes": [
+    "Doğu İnşaat A.Ş. tarafından aleyhimize açılan 54.000.000 TL tutarlı alacak davası",
+    "12.11.2026 tarihinde Şirketimiz lehine sonuçlanmıştır"
+   ],
+   "problems": [],
+   "seconds": 21.7
+  },
+  {
+   "id": "leg-05",
+   "gold": "legal_case",
+   "keyword": "legal_case",
+   "llm": "legal_case",
+   "error": null,
+   "amount": "1.250.000 TL",
+   "date": null,
+   "counterparty": "Sermaye Piyasası Kurulu",
+   "summary_tr": "Şirket, Sermaye Piyasası Kurulu tarafından özel durum açıklama yükümlülüğünün zamanında yerine getirilmediği gerekçesiyle 1.250.000 TL idari para cezası almıştır.",
+   "summary_en": "The company has been fined 1,250,000 TL by the Capital Markets Board for failing to fulfill its obligation to disclose special situations in a timely manner.",
+   "quotes": [
+    "1.250.000 TL",
+    "özel durum açıklama yükümlülüğünün zamanında yerine getirilmediği"
+   ],
+   "problems": [],
+   "seconds": 22.8
+  },
+  {
+   "id": "leg-06",
+   "gold": "legal_case",
+   "keyword": "legal_case",
+   "llm": "legal_case",
+   "error": null,
+   "amount": "14.700.000 EUR",
+   "date": null,
+   "counterparty": "Kazakistan'daki bir demiryolu işletmecisi",
+   "summary_tr": "Şirket, sözleşmeden doğan alacaklarını tahsil etmek amacıyla Milletlerarası Tahkim Merkezi nezdinde Kazakistan'daki bir demiryolu işletmecisine karşı 14.700.000 EUR tutarında tahkim başvurusunda bulunmuştur.",
+   "summary_en": "The company has filed an arbitration claim for 14,700,000 EUR before the International Arbitration Center against a railway operator in Kazakhstan to collect receivables arising from contracts.",
+   "quotes": [
+    "14.700.000 EUR",
+    "Milletlerarası Tahkim Merkezi"
+   ],
+   "problems": [],
+   "seconds": 23.1
+  },
+  {
+   "id": "oth-01",
+   "gold": "other",
+   "keyword": "other",
+   "llm": "other",
+   "error": null,
+   "amount": null,
+   "date": null,
+   "counterparty": null,
+   "summary_tr": "Uluslararası bir derecelendirme kuruluşu, Şirketimizin uzun vadeli ulusal kredi notunu A+(tur) seviyesinden AA-(tur) seviyesine yükseltmiş ve görünümünü durağan olarak teyit etmiştir.",
+   "summary_en": "An international rating agency has upgraded the Company's long-term national credit rating from A+(tur) to AA-(tur) and confirmed the outlook as stable.",
+   "quotes": [
+    "A+(tur)",
+    "AA-(tur)"
+   ],
+   "problems": [],
+   "seconds": 28.6
+  },
+  {
+   "id": "oth-02",
+   "gold": "other",
+   "keyword": "other",
+   "llm": "other",
+   "error": null,
+   "amount": null,
+   "date": "15.04.2026",
+   "counterparty": null,
+   "summary_tr": "Şirketin 2025 yılı Olağan Genel Kurul toplantısı 15.04.2026 tarihinde saat 10:00'da şirket merkezinde yapılacaktır.",
+   "summary_en": "The company's 2025 Ordinary General Assembly meeting will be held at the company headquarters on 15.04.2026 at 10:00.",
+   "quotes": [
+    "15.04.2026",
+    "10:00"
+   ],
+   "problems": [
+    "summary_tr: 2025 not backed by a source quote",
+    "summary_en: 2025 not backed by a source quote"
+   ],
+   "seconds": 42.0
+  },
+  {
+   "id": "oth-03",
+   "gold": "other",
+   "keyword": "management_change",
+   "llm": "other",
+   "error": null,
+   "amount": "41,90 TL",
+   "date": "06.11.2026",
+   "counterparty": null,
+   "summary_tr": "Yönetim Kurulu Üyesi Okan Gür, 06.11.2026 tarihinde Borsa İstanbul'da ortalama 41,90 TL fiyattan 20.000 adet şirket payı satın almıştır.",
+   "summary_en": "Board Member Okan Gür purchased 20,000 company shares on the Istanbul Stock Exchange at an average price of 41.90 TL on 06.11.2026.",
+   "quotes": [
+    "06.11.2026",
+    "41,90 TL",
+    "20.000 adet"
+   ],
+   "problems": [],
+   "seconds": 21.7
+  },
+  {
+   "id": "oth-04",
+   "gold": "other",
+   "keyword": "other",
+   "llm": "other",
+   "error": null,
+   "amount": "96.000.000 TL",
+   "date": null,
+   "counterparty": null,
+   "summary_tr": "Şirket, üretim kapasitesini artırmak için Uşak Organize Sanayi Bölgesi'nde bulunan 45.000 m² büyüklüğündeki arsayı 96.000.000 TL bedelle satın almıştır.",
+   "summary_en": "The company has purchased a 45,000 m² plot of land in the Uşak Organized Industrial Zone for 96,000,000 TL to increase its production capacity.",
+   "quotes": [
+    "45.000 m²",
+    "96.000.000 TL"
+   ],
+   "problems": [],
+   "seconds": 23.0
+  },
+  {
+   "id": "oth-05",
+   "gold": "other",
+   "keyword": "other",
+   "llm": "other",
+   "error": null,
+   "amount": "410.000.000 TL",
+   "date": null,
+   "counterparty": "Sanayi ve Teknoloji Bakanlığı",
+   "summary_tr": "Şirketimize Sanayi ve Teknoloji Bakanlığı tarafından yeni Ar-Ge merkezi yatırımı için 410.000.000 TL tutarında yatırım teşvik belgesi düzenlenmiştir.",
+   "summary_en": "The Ministry of Industry and Technology has issued an investment incentive certificate for a new R&D center investment in the amount of 410,000,000 TL for our company.",
+   "quotes": [
+    "410.000.000 TL",
+    "Sanayi ve Teknoloji Bakanlığı"
+   ],
+   "problems": [],
+   "seconds": 24.0
+  },
+  {
+   "id": "oth-06",
+   "gold": "other",
+   "keyword": "other",
+   "llm": "other",
+   "error": null,
+   "amount": "750.000.000 TL",
+   "date": "21.10.2026",
+   "counterparty": "nitelikli yatırımcılar",
+   "summary_tr": "Şirket, nitelikli yatırımcılara yönelik 182 gün vadeli bir finansman bonosu ihraç etmiştir.",
+   "summary_en": "The company has issued an 182-day financial bond to qualified investors.",
+   "quotes": [
+    "750.000.000 TL",
+    "182 gün vadeli",
+    "21.10.2026"
+   ],
+   "problems": [],
+   "seconds": 22.1
+  },
+  {
+   "id": "oth-07",
+   "gold": "other",
+   "keyword": "other",
+   "llm": "other",
+   "error": null,
+   "amount": null,
+   "date": "19.11.2026",
+   "counterparty": "Borsa İstanbul",
+   "summary_tr": "Şirket paylarında gerçekleşen işlemler nedeniyle Borsa İstanbul tarafından 19.11.2026 tarihinden itibaren bir ay süreyle brüt takas ve tek fiyat tedbirleri uygulanmasına karar verilmiştir.",
+   "summary_en": "Due to transactions in company shares, Borsa İstanbul has decided to apply gross settlement and single-price measures for a period of one month starting from 19.11.2026.",
+   "quotes": [
+    "19.11.2026",
+    "bir ay süreyle"
+   ],
+   "problems": [],
+   "seconds": 21.4
+  },
+  {
+   "id": "oth-08",
+   "gold": "other",
+   "keyword": "other",
+   "llm": "other",
+   "error": null,
+   "amount": null,
+   "date": null,
+   "counterparty": null,
+   "summary_tr": "Şirket, pay fiyatı ve işlem hacmi hareketlerine ilişkin özel bir durum olmadığını beyan etmiştir.",
+   "summary_en": "The company stated that there is no undisclosed special situation regarding share price and volume movements.",
+   "quotes": [
+    "kamuya açıklanmamış herhangi bir özel durum bulunmamaktadır"
+   ],
+   "problems": [],
+   "seconds": 18.6
+  },
+  {
+   "id": "oth-09",
+   "gold": "other",
+   "keyword": "other",
+   "llm": "other",
+   "error": null,
+   "amount": null,
+   "date": null,
+   "counterparty": null,
+   "summary_tr": "Şirketimizin 2025 yılına ait Sürdürülebilirlik Raporu, Türkiye Sürdürülebilirlik Raporlama Standartları çerçevesinde hazırlanmıştır.",
+   "summary_en": "The company's Sustainability Report for 2025 has been prepared within the framework of the Turkey Sustainability Reporting Standards.",
+   "quotes": [
+    "2025",
+    "Türkiye Sürdürülebilirlik Raporlama Standartları"
+   ],
+   "problems": [],
+   "seconds": 35.6
+  },
+  {
+   "id": "oth-10",
+   "gold": "other",
+   "keyword": "other",
+   "llm": "other",
+   "error": null,
+   "amount": "35.000.000 EUR",
+   "date": null,
+   "counterparty": null,
+   "summary_tr": "Yönetim Kurulu, Manisa fabrikasında yıllık 40.000 ton kapasiteli yeni bir üretim hattı kurulmasına ve yaklaşık 35.000.000 EUR harcama yapılmasına karar vermiştir.",
+   "summary_en": "The Board of Management has decided to establish a new production line with an annual capacity of 40,000 tons at the Manisa factory and to incur approximately 35,000,000 EUR in expenses for this investment.",
+   "quotes": [
+    "Manisa fabrikasında yıllık 40.000 ton kapasiteli yeni bir üretim hattı kurulmasına",
+    "bu yatırım için yaklaşık 35.000.000 EUR harcama yapılmasına"
+   ],
+   "problems": [],
+   "seconds": 19.4
+  }
+ ],
+ "provider": "ollama"
+}

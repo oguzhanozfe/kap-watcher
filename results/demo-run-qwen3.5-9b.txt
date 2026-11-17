@@ -1,0 +1,21 @@
+[DMGDA] DIVIDEND - Kar Payı Dağıtım İşlemlerine İlişkin Bildirim
+  amount: 312.500.000 TL
+  date: 28.05.2026
+  TR: Örnek Gıda Sanayi A.Ş. Yönetim Kurulu, 2025 yılı kârından pay başına brüt 1,25 TL olmak üzere toplam 312.500.000 TL nakit kâr payı dağıtılmasının Genel Kurul onayına sunulmasına karar vermiştir.
+  EN: The Board of Directors of Örnek Gıda Sanayi A.Ş. has decided to submit for General Assembly approval the distribution of a total cash dividend of 312,500,000 TL based on a gross amount of 1.25 TL per share from the 2025 profit.
+  source: "2025 yılı kârından"
+  source: "pay başına brüt 1,25 TL"
+  source: "toplam 312.500.000 TL nakit kâr payı dağıtılmasının"
+  source: "Ödemenin 28.05.2026 tarihinde yapılması önerilmektedir."
+  Not investment advice. Check the original disclosure on kap.org.tr.
+
+[DRAYL] CONTRACT_TENDER - Yeni İş İlişkisi
+  amount: 1.245.000.000 TL + KDV
+  date: 09.11.2026
+  counterparty: TCDD Taşımacılık A.Ş.
+  TR: Şirketimiz, TCDD Taşımacılık A.Ş.'nin düzenlediği yük vagonu imalatı ihalesini 1.245.000.000 TL + KDV bedelle kazanmıştır ve sözleşme 09.11.2026 tarihinde imzalanacaktır.
+  EN: The company has won the freight wagon manufacturing tender organized by TCDD Taşımacılık A.Ş. with a value of 1,245,000,000 TL + VAT, and the contract will be signed on 09.11.2026.
+  source: "1.245.000.000 TL + KDV"
+  source: "09.11.2026"
+  Not investment advice. Check the original disclosure on kap.org.tr.
+

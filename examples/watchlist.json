@@ -1,0 +1,5 @@
+{
+  "DMGDA": ["dividend", "buyback", "capital_increase"],
+  "DRAYL": [],
+  "*": ["m_and_a", "legal_case"]
+}

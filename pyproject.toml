@@ -1,0 +1,21 @@
+[project]
+name = "kap-watcher"
+version = "0.1.0"
+description = "Summarise, classify and alert on KAP disclosures you saved, with a number-verification check."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+pdf = ["pypdf>=4"]
+
+[project.scripts]
+kap-watcher = "kap_watcher.cli:main"
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["kap_watcher"]
